@@ -1,77 +1,100 @@
-# bg #394260
-# fg #3ec669
-# fg #ff9248
+###############################################
+# ➜ directory git:(main) <command>            #
+###############################################
 
 format = """
-[](#394260)\
-[](fg:#3ec669 bg:#394260)\
+$character\
 $directory\
-[ ](#394260)\
-
-([ ](#394260)\
-$git_branch\
-$git_status\
-[](#394260))\
-
-([ ](#394260)\
-$nodejs\
-$golang\
-$rust\
-$lua\
-$c\
-[](#394260))\
-\n$character"""
-
+($git_branch)\
+"""
 
 [character]
-success_symbol = '[](bold #3ec669) '
-error_symbol = '[](bold #ff9248) '
+success_symbol = '[➜](bold #98C379)'
+error_symbol = '[➜](bold #BF616A)'
 
 [directory]
-style = "fg:#3ec669 bg:#394260"
-read_only = "󰉐"
-read_only_style = "fg:#3ec669 bg:#394260"
-format = "[ $path]($style)"
-use_os_path_sep = false
-truncation_symbol = "../../"
-truncation_length = 3
+format = "[ $path ](fg:#56B6C2)"
+truncation_length = 1
 
 [git_branch]
-symbol = ""
-style = "bg:#394260"
-format = '[[ $symbol $branch ](fg:#ff9248 bg:#394260)]($style)'
+format = '[git:\(](#5FAAE8)[$branch](fg:#D0666F)[\)](#5FAAE8) '
 
-[git_status]
-modified = ""
-deleted = ""
-format = "[( $modified $deleted)](fg:#ff9248 bg:#394260)"
 
-[nodejs]
-symbol = ""
-style = "bg:#394260"
-format = '[[ $symbol ($version) ](fg:#4885ff bg:#394260)]($style)'
+###############################################
+#    directory    main     ﳑ v1.26  #
+#   <command>                                #
+###############################################
 
-[rust]
-symbol = ""
-style = "bg:#394260"
-format = '[[ $symbol ($version) ](fg:#4885ff bg:#394260)]($style)'
-
-[lua]
-symbol = ""
-style = "bg:#394260"
-format = '[[ $symbol ($version) ](fg:#4885ff bg:#394260)]($style)'
-
-[golang]
-symbol = "ﳑ"
-style = "bg:#394260"
-format = '[[ $symbol ($version) ](fg:#4885ff bg:#394260)]($style)'
-
-[vlang]
-symbol = "∨"
-style = "bg:#394260"
-format = '[[ $symbol ($version) ](fg:#4885ff bg:#394260)]($style)'
-
-[c]
-symbol = ""
-style = "bg:#394260"
-format = '[[ $symbol ($version) ](fg:#4885ff bg:#394260)]($style)'
+# format = """
+# [](#394260)\
+# [](fg:#3ec669 bg:#394260)\
+# $directory\
+# [ ](#394260)\
+#
+# ([ ](#394260)\
+# $git_branch\
+# $git_status\
+# [](#394260))\
+#
+# ([ ](#394260)\
+# $nodejs\
+# $golang\
+# $rust\
+# $lua\
+# $c\
+# [](#394260))\
+# \n$character"""
+#
+#
+# [character]
+# success_symbol = '[](bold #3ec669) '
+# error_symbol = '[](bold #ff9248) '
+#
+# [directory]
+# style = "fg:#3ec669 bg:#394260"
+# read_only = "󰉐"
+# read_only_style = "fg:#3ec669 bg:#394260"
+# format = "[ $path]($style)"
+# use_os_path_sep = false
+# truncation_symbol = "../../"
+# truncation_length = 3
+#
+# [git_branch]
+# symbol = ""
+# style = "bg:#394260"
+# format = '[[ $symbol $branch ](fg:#ff9248 bg:#394260)]($style)'
+#
+# [git_status]
+# modified = ""
+# deleted = ""
+# format = "[( $modified $deleted)](fg:#ff9248 bg:#394260)"
+#
+# [nodejs]
+# symbol = ""
+# style = "bg:#394260"
+# format = '[[ $symbol ($version) ](fg:#4885ff bg:#394260)]($style)'
+#
+# [rust]
+# symbol = ""
+# style = "bg:#394260"
+# format = '[[ $symbol ($version) ](fg:#4885ff bg:#394260)]($style)'
+#
+# [lua]
+# symbol = ""
+# style = "bg:#394260"
+# format = '[[ $symbol ($version) ](fg:#4885ff bg:#394260)]($style)'
+#
+# [golang]
+# symbol = "ﳑ"
+# style = "bg:#394260"
+# format = '[[ $symbol ($version) ](fg:#4885ff bg:#394260)]($style)'
+#
+# [vlang]
+# symbol = "∨"
+# style = "bg:#394260"
+# format = '[[ $symbol ($version) ](fg:#4885ff bg:#394260)]($style)'
+#
+# [c]
+# symbol = ""
+# style = "bg:#394260"
+# format = '[[ $symbol ($version) ](fg:#4885ff bg:#394260)]($style)'

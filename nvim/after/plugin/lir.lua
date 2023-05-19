@@ -60,8 +60,4 @@ vim.api.nvim_create_autocmd({'FileType'}, {
     end
 })
 
-require'lir.git_status'.setup({
-    show_ignored = false
-})
-
 vim.keymap.set('n', '<C-f>', ":lua require'lir.float'.toggle() <CR>", { silent=true })

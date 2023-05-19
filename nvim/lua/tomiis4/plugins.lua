@@ -8,9 +8,8 @@ return require('packer').startup(function(use)
     use 'wakatime/vim-wakatime' -- count time you have spend in vim
 
     use({ 'rose-pine/neovim', as = 'rose-pine' })
+    use { "catppuccin/nvim", as = "catppuccin" }
     use 'xiyaowong/transparent.nvim' -- make background transparent
-    use { 'echasnovski/mini.starter', branch = 'stable' }
-
 
     use 'brenoprata10/nvim-highlight-colors' -- display colors
     use 'lukas-reineke/indent-blankline.nvim' -- display blankline with line
@@ -26,18 +25,14 @@ return require('packer').startup(function(use)
     use 'windwp/nvim-autopairs' -- smart autopairs
     use 'lewis6991/gitsigns.nvim' -- git integration (show hunks & new files)
     use 'numToStr/Comment.nvim' -- commenter
-    use { 
+    use {
         'tamago324/lir.nvim', -- filetree
-        requires = {
-            { 'tamago324/lir-git-status.nvim' } -- show git status in filetree
-        }
-    } 
+    }
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1', -- fzf
-        requires = { 
+        requires = {
             {'nvim-lua/plenary.nvim'},
-            {'nvim-telescope/telescope-symbols.nvim'}
         }
     }
 

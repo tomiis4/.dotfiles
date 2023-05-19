@@ -1,6 +1,6 @@
 # My NeoVim config
 Font: <a href="https://www.nerdfonts.com/font-downloads"> JetBrainsMono NF  </a>\
-Theme: Rose-Pine\
+Theme: Catppuccin\
 Background: <a href="https://raw.githubusercontent.com/p3nguin-kun/gruvbox-wallpapers/main/minimalistic/gruvbox_astro.jpg">https://github.com/p3nguin-kun/gruvbox-wallpapers</a>\
 Terminal: powershell 
 Prompt: <a href="https://starship.rs">starship.rs</a>

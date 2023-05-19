@@ -1,54 +1,46 @@
-require('rose-pine').setup({
-	variant = 'auto',
-	dark_variant = 'main',
-	bold_vert_split = false,
-	dim_nc_background = false,
-	disable_background = true,
-	disable_float_background = true,
-	disable_italics = false,
-
-	--- @usage string hex value or named color from rosepinetheme.com/palette
-	groups = {
-        base = 'NONE',
-		background = 'base',
-		background_nc = '_experimental_nc',
-		panel = 'surface',
-		panel_nc = 'base',
-		border = 'highlight_med',
-		comment = 'muted',
-		link = 'iris',
-		punctuation = 'subtle',
-
-		error = 'love',
-		hint = 'iris',
-		info = 'foam',
-		warn = 'gold',
-
-		headings = {
-			h1 = 'iris',
-			h2 = 'foam',
-			h3 = 'rose',
-			h4 = 'gold',
-			h5 = 'pine',
-			h6 = 'foam',
-		}
-		-- or set all headings at once
-		-- headings = 'subtle'
-	},
-
-	-- Change specific vim highlight groups
-	-- https://github.com/rose-pine/neovim/wiki/Recipes
-	highlight_groups = {
-		ColorColumn = { bg = 'rose' },
-
-		-- Blend colours against the "base" background
-		CursorLine = { bg = 'NONE', blend = 0 },
-		StatusLine = { fg = 'NONE', bg = 'NONE', blend = 0 },
-	}
+require("catppuccin").setup({
+    flavour = "mocha", -- latte, frappe, macchiato, mocha
+    background = { -- :h background
+        dark = "mocha",
+    },
+    transparent_background = true,
+    show_end_of_buffer = false, -- show the '~' characters after the end of buffers
+    term_colors = false,
+    dim_inactive = {
+        enabled = false,
+        shade = "dark",
+        percentage = 0.15,
+    },
+    no_italic = false, -- Force no italic
+    no_bold = false, -- Force no bold
+    no_underline = false, -- Force no underline
+    styles = {
+        comments = { "italic" },
+        conditionals = { "italic" },
+        loops = {},
+        functions = {},
+        keywords = {},
+        strings = {},
+        variables = {},
+        numbers = {},
+        booleans = {},
+        properties = {},
+        types = { "italic" },
+        operators = {},
+    },
+    integrations = {
+        cmp = true,
+        gitsigns = true,
+        nvimtree = false,
+        telescope = true,
+        notify = false,
+        mini = false,
+    },
 })
 
--- set colorscheme
-vim.cmd('colorscheme rose-pine')
+-- setup must be called before loading
+vim.cmd.colorscheme "catppuccin"
+
 
 -- markdown syntax
 vim.cmd [[let g:markdown_fenced_languages = ['ts=typescript', 'js=javascript', 'lua', 'c'] ]]
