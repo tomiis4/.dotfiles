@@ -25,10 +25,7 @@ return require('packer').startup(function(use)
     use 'windwp/nvim-autopairs' -- smart autopairs
     use 'lewis6991/gitsigns.nvim' -- git integration (show hunks & new files)
     use 'numToStr/Comment.nvim' -- commenter
-    use {
-        'tamago324/lir.nvim', -- filetree
-    }
-
+    use 'tamago324/lir.nvim' -- filetree
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1', -- fzf
         requires = {
