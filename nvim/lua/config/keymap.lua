@@ -15,9 +15,3 @@ keyset('n', 'cc', ':bdelete! <CR>', {})
 
 -- NOH automatical
 keyset('n', 'mm', ':nohlsearch <CR>', {})
-
--- exit insert move in terminal
-vim.cmd [[:tnoremap <Esc> <C-\><C-n>]]
-
--- change " to '
-keyset('n', 'r\'', ':%s/"/\'/g <CR>', {})

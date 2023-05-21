@@ -1,1 +1,1 @@
-require('tomiis4')
+require('config')

@@ -1,4 +1,10 @@
-require("catppuccin").setup({
+return {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    lazy = false,
+    priority = 1000,
+    config = function()
+	    require("catppuccin").setup({
     flavour = "mocha", -- latte, frappe, macchiato, mocha
     background = { -- :h background
         dark = "mocha",
@@ -49,3 +55,5 @@ vim.cmd [[let g:markdown_fenced_languages = ['ts=typescript', 'js=javascript', '
 vim.cmd [[:highlight GitSignsAdd guibg=NONE]]
 vim.cmd [[:highlight GitSignsChange guibg=NONE]]
 vim.cmd [[:highlight GitSignsDelete guibg=NONE]]
+    end,
+}

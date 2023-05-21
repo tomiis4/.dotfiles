@@ -1,3 +1,8 @@
+return {
+    'tamago324/lir.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons' },
+    lazy = false,
+    config = function()
 local actions = require'lir.actions'
 local mark_actions = require 'lir.mark.actions'
 local clipboard_actions = require'lir.clipboard.actions'
@@ -59,5 +64,6 @@ vim.api.nvim_create_autocmd({'FileType'}, {
         )
     end
 })
-
-vim.keymap.set('n', '<C-f>', ":lua require'lir.float'.toggle() <CR>", { silent=true })
+vim.keymap.set('n', '<C-f>', ":lua require'lir.float'.init() <CR>", { silent=true })
+    end
+}
