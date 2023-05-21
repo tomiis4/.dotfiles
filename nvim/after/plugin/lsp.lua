@@ -73,6 +73,7 @@ vim.diagnostic.config({
     signs = true,
     underline = true,
     severity_sort = true,
+    float = { border = "rounded" },
 })
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
@@ -81,4 +82,5 @@ for type, icon in pairs(signs) do
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-vim.keymap.set("n", "bf", ":lua vim.lsp.buf.format() <CR>", {})
+vim.keymap.set("n", "bf", vim.lsp.buf.format, {})
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
