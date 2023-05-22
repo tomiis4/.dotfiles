@@ -4,13 +4,12 @@ return {
     lazy = true,
     priority = 10,
     keys = { "f", '<cmd>Telescope find_files<CR>', desc = "" },
-
     config = function()
         local builtin = require('telescope.builtin')
 
         require('telescope').setup {
-	        defaults = {
-		        file_ignore_patterns = { "node_modules", ".git" },
+            defaults = {
+                file_ignore_patterns = { "node_modules", ".git" },
                 layout_config = {
                     horizontal = {
                         prompt_position = "top",
@@ -23,13 +22,13 @@ return {
                     width = 0.87,
                     height = 0.9,
                     preview_cutoff = 120,
-	            },
+                },
             },
-	        pickers = {
-		        colorscheme = {
-			        enable_preview = true
-		        },
-	        },
+            pickers = {
+                colorscheme = {
+                    enable_preview = true
+                },
+            },
         }
 
         vim.keymap.set('n', 'ff', builtin.find_files, {})
