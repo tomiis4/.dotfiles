@@ -2,7 +2,8 @@
 Font: <a href="https://www.nerdfonts.com/font-downloads"> JetBrainsMono NF  </a>\
 Theme: Catppuccin\
 Background: <a href="https://raw.githubusercontent.com/p3nguin-kun/gruvbox-wallpapers/main/minimalistic/gruvbox_astro.jpg">https://github.com/p3nguin-kun/gruvbox-wallpapers</a>\
-Terminal: powershell 
+Terminal: Windows Terminal
+Shell: powershell 
 Prompt: <a href="https://starship.rs">starship.rs</a>
 
 ### Keybindings
@@ -21,11 +22,13 @@ Note: keybindings can change any time.
     - move next.: `cn`
     - move prev.: `cp`
     - delete: `cc`
+- LSP
+    - format `bf`
+    - view LSP message `<leader>e`
 - Preview hunk (git): `gp`
 - Next hunk (git): `gn`
 - Comment line: `<leader><leader>`
 - NOH command `mm`
 
 ### Preview
-<img src='https://media.discordapp.net/attachments/736674176265355264/1108095269754646599/image.png?width=879&height=458'>
-<img src='https://media.discordapp.net/attachments/736674176265355264/1108095270018883696/image.png?width=920&height=458'>
+<img src='https://media.discordapp.net/attachments/772927831441014847/1110615593196994590/image.png?width=881&height=458'>
