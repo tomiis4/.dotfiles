@@ -1,4 +1,4 @@
-# My porsonal NeoVim Cheat Sheet
+# My personal NeoVim Cheat Sheet
 
 ## Normal
 - `h`: move left
