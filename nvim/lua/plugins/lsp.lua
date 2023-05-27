@@ -31,6 +31,7 @@ return {
             },
             mapping = cmp.mapping.preset.insert({
                 ['<Tab>'] = cmp.mapping.select_next_item(cmp_select),
+                ['<C-c>'] = cmp.mapping.abort(),
                 ['<CR>'] = cmp.mapping.confirm({ select = true }),
             }),
             window = {
@@ -43,7 +44,12 @@ return {
                 { name = 'nvim_lsp_signature_help' },
                 { name = 'buffer' },
                 { name = 'calc' },
-            })
+            }),
+            experimental = {
+                ghost_text = {
+                    hl_group = 'Comment',
+                },
+            },
         })
 
         cmp.setup.filetype('gitcommit', {
