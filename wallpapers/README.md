@@ -1,10 +1,7 @@
 # My list of wallpapers
 
-### City-1
-<img src="./city-1.png">
-
-### City-2
-<img src="./city-2.jpg">
+### City
+<img src="./city.png">
 
 ### Cosmonaut
 <img src="./cosmonaut.jpg">
