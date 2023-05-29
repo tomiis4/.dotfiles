@@ -47,8 +47,8 @@ format = '[git:\(](#5FAAE8)[$branch](fg:#D0666F)[\)](#5FAAE8) '
 #
 #
 # [character]
-# success_symbol = '[](bold #3ec669) '
-# error_symbol = '[](bold #ff9248) '
+# success_symbol = '[➜](bold #3ec669) '
+# error_symbol = '[➜](bold #ff9248) '
 #
 # [directory]
 # style = "fg:#3ec669 bg:#394260"
