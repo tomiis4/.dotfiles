@@ -6,14 +6,20 @@
 ### Cosmonaut
 <img src="./cosmonaut.jpg">
 
+### Cpu
+<img src="./cpu.png">
+
 ### Forest
 <img src="./forest.jpg">
 
 ### Jellyfish
 <img src="./jellyfish.jpg">
 
-### Moon
-<img src="./moon.jpg">
+### Moon-1
+<img src="./moon-1.png">
+
+### Moon-2
+<img src="./moon-2.jpg">
 
 ### Psychadelic
 <img src="./psychadelic.jpg">

@@ -1,9 +1,8 @@
 # My NeoVim config
 Font: <a href="https://www.nerdfonts.com/font-downloads"> JetBrainsMono NF  </a>\
-Theme: Catppuccin\
-Background: <a href="https://raw.githubusercontent.com/p3nguin-kun/gruvbox-wallpapers/main/minimalistic/gruvbox_astro.jpg">https://github.com/p3nguin-kun/gruvbox-wallpapers</a>\
-Terminal: Windows Terminal
-Shell: powershell 
+Theme: <a href="https://github.com/catppuccin"> Catppuccin </a>\
+Terminal: Windows Terminal\
+Shell: powershell\
 Prompt: <a href="https://starship.rs">starship.rs</a>
 
 ### Keybindings
