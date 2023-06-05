@@ -13,7 +13,7 @@ success_symbol = '[➜](bold #98C379)'
 error_symbol = '[➜](bold #BF616A)'
 
 [directory]
-format = "[ $path ](fg:#56B6C2)"
+format = "[$path ](fg:#56B6C2)"
 truncation_length = 1
 
 [git_branch]
