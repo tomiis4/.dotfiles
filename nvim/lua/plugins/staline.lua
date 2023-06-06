@@ -10,6 +10,7 @@ return {
                 stab_left = '',
             }
 
+            -- old config
             -- require 'staline'.setup {
             --     sections = {
             --         left = { '  ', 'mode', ' ', 'branch', ' ', 'lsp' },

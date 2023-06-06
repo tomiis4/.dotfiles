@@ -1,6 +1,7 @@
 # My NeoVim config
 Font: <a href="https://www.nerdfonts.com/font-downloads"> JetBrainsMono NF  </a>\
-Theme: <a href="https://github.com/catppuccin"> Catppuccin </a>\
+Theme: <a href="https://github.com/rose-pine"> Rose Pine </a>\
+Editor: NeoVim\
 Terminal: Windows Terminal\
 Shell: powershell\
 Prompt: <a href="https://starship.rs">starship.rs</a>
