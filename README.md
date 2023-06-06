@@ -31,4 +31,4 @@ Note: keybindings can change any time.
 - NOH command `mm`
 
 ### Preview
-<img src='https://media.discordapp.net/attachments/772927831441014847/1110615593196994590/image.png?width=881&height=458'>
+<img src='https://media.discordapp.net/attachments/772927831441014847/1115665591009804411/image.png?width=815&height=458'>

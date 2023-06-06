@@ -41,10 +41,10 @@
             {
                 "altGrAliasing": true,
                 "antialiasingMode": "grayscale",
-                "backgroundImage": "%USERPROFILE%\\.config\\wallpapers\\city.png",
-                "backgroundImageOpacity": 0.13,
+                "backgroundImage": "https://github.com/HarryHeres/dotfiles/blob/main/Wallpapers/comet.jpg?raw=true",
+                "backgroundImageOpacity": 0.05,
                 "closeOnExit": "automatic",
-                "colorScheme": "Catppuccin Mocha",
+                "colorScheme": "Rose Pine",
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "cursorShape": "underscore",
                 "experimental.retroTerminalEffect": false,

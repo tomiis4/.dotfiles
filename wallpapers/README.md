@@ -6,6 +6,9 @@
 ### Cosmonaut
 <img src="./cosmonaut.jpg">
 
+### Comet
+<img src="./comet.jpg">
+
 ### Cpu
 <img src="./cpu.png">
 
