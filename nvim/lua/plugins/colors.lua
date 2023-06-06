@@ -1,51 +1,20 @@
 return {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "rose-pine/neovim",
+    name = "rose-pine",
     lazy = false,
     priority = 1000,
     config = function()
-        require("catppuccin").setup({
-            flavour = "mocha", -- latte, frappe, macchiato, mocha
-            background = { -- :h background
-                dark = "mocha",
-            },
-            transparent_background = true,
-            show_end_of_buffer = false, -- show the '~' characters after the end of buffers
-            term_colors = false,
-            dim_inactive = {
-                enabled = false,
-                shade = "dark",
-                percentage = 0.15,
-            },
-            no_italic = false, -- Force no italic
-            no_bold = false, -- Force no bold
-            no_underline = false, -- Force no underline
-            styles = {
-                comments = { "italic" },
-                conditionals = { "italic" },
-                loops = {},
-                functions = {},
-                keywords = {},
-                strings = {},
-                variables = {},
-                numbers = {},
-                booleans = {},
-                properties = {},
-                types = { "italic" },
-                operators = {},
-            },
-            integrations = {
-                cmp = true,
-                gitsigns = true,
-                nvimtree = false,
-                telescope = true,
-                notify = false,
-                mini = false,
-            },
+        require('rose-pine').setup({
+            variant = 'main',
+            dark_variant = 'main',
+            dim_nc_background = false,
+            disable_background = true,
+            disable_float_background = true,
+            disable_italics = false,
         })
 
-        -- setup must be called before loading
-        vim.cmd.colorscheme "catppuccin"
+        -- Set colorscheme after options
+        vim.cmd('colorscheme rose-pine')
 
 
         -- markdown syntax

@@ -4,6 +4,12 @@ vim.keymap.set('n', '<leader>t', ':terminal <CR>', {})
 -- exit insert move in terminal
 vim.cmd [[:tnoremap <Esc> <C-\><C-n>]]
 
+-- disable numbers in terminal
+vim.api.nvim_create_autocmd('TermOpen', {
+  pattern = '',
+  command = "setlocal nonumber norelativenumber"
+})
+
 
 return {
     {
