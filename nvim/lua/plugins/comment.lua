@@ -1,13 +1,13 @@
 return {
     'numToStr/Comment.nvim',
     keys = {
-        { "gc", "<cmd>lua require('Comment').setup()<cr>", desc = "" },
+        { "<leader><leader>", "<cmd>lua require('Comment').setup()<cr>", desc = "" },
         { "gcc",              "<cmd>lua require('Comment').setup()<cr>", desc = "" },
     },
     config = function()
         require('Comment').setup({
             toggler = {
-                line = 'gc',
+                line = '<leader><leader>',
                 block = 'gcc',
             },
         })
