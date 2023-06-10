@@ -19,4 +19,4 @@ vim.opt.backup        = false
 vim.opt.undofile      = true
 
 vim.opt.showtabline=2
-vim.opt.laststatus=2
+vim.opt.laststatus=3
