@@ -37,7 +37,6 @@ set smarttab
 set expandtab
 set smartindent
 
-
 " Cursor like nvim
 if !has('nvim') 
     let &t_SI = "\<esc>[6 q"
