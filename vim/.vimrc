@@ -10,12 +10,14 @@ set termguicolors
 set background=dark
 syntax on
 
+
 " display
 language en_US " language
 set showcmd
 set wildmenu
 set wildmode=full
 set laststatus=2
+set colorcolumn=80
 
 
 " mouse
@@ -37,6 +39,7 @@ set smarttab
 set expandtab
 set smartindent
 
+
 " Cursor like nvim
 if !has('nvim') 
     let &t_SI = "\<esc>[6 q"
@@ -49,6 +52,7 @@ if !has('nvim')
 	set t_Co=256 " cursor color
 endif
 
+
 " Autopairs 
 inoremap ( ()<Left>
 inoremap [ []<Left>
@@ -57,6 +61,7 @@ inoremap < <><Left>
 inoremap " ""<Left>
 inoremap ' ''<Left>
 inoremap ` ``<Left>
+
 
 " Keybindings
 let mapleader=" "
@@ -69,6 +74,11 @@ nnoremap <leader>h :wincmd h <CR>
 nnoremap <leader>l :wincmd l <CR>
 nnoremap <leader>k :wincmd k <CR>
 nnoremap <leader>j :wincmd j <CR>
+
+nnoremap <CR> ciw
+
+vnoremap <leader>f :fold <CR>
+
 
 " Gruvbox colorscheme
 " Background and foreground
@@ -95,9 +105,12 @@ hi Cursor guifg=NONE guibg=#ebdbb2
 " Cursor line
 hi CursorLine guibg=#3c3836
 
+" Colorcolumn
+hi ColorColumn guibg=#3c3836
+
 " Status line
-hi StatusLine guifg=#282828 guibg=#fabd2f
-hi StatusLineNC guifg=#a89984 guibg=#3c3836
+hi StatusLineNC guifg=#282828 guibg=#fabd2f
+hi StatusLine guifg=#a89984 guibg=#3c3836
 
 " Tab line
 hi TabLineFill guifg=#282828 guibg=#3c3836
