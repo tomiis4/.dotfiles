@@ -2,7 +2,12 @@
 vim.opt.number           = true
 vim.opt.relativenumber   = true
 vim.opt.termguicolors    = true
+
 vim.opt.cursorline       = false
+vim.opt.linebreak        = true
+vim.opt.wrap             = true
+vim.opt.colorcolumn      = { 80 }
+
 vim.cmd('language en_US')
 vim.cmd('syntax on')
 

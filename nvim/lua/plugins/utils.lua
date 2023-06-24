@@ -36,6 +36,13 @@ return {
             vim.keymap.set('v', '<leader>r', ":Hypersonic <CR>", { silent = true })
         end
     },
+    {
+        'lukas-reineke/virt-column.nvim',
+        event = "BufEnter",
+        config = function ()
+            require("virt-column").setup()
+        end
+    }
 --     {
 --         'nyngwang/NeoWell.lua',
 --         config = function()
