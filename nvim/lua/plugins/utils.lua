@@ -42,7 +42,7 @@ return {
         config = function ()
             require("virt-column").setup()
         end
-    }
+    },
 --     {
 --         'nyngwang/NeoWell.lua',
 --         config = function()
