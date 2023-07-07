@@ -25,8 +25,9 @@ Note: keybindings can change any time.
 - LSP
     - format `bf`
     - view LSP message `<leader>e`
-- Preview hunk (git): `gp`
-- Next hunk (git): `gn`
+- Git
+    - Preview hunk (git): `gp`
+    - Next hunk (git): `gn`
 - Comment line: `<leader><leader>`
 - NOH command `mm`
 
