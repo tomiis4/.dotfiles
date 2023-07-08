@@ -1,28 +1,24 @@
 return {
-    "rose-pine/neovim",
-    name = "rose-pine",
+    'mcchrish/zenbones.nvim',
+    dependencies = {
+        'rktjmp/lush.nvim'
+    },
     lazy = false,
     priority = 1000,
-    config = function()
-        require('rose-pine').setup({
-            variant = 'main',
-            dark_variant = 'main',
-            dim_nc_background = false,
-            disable_background = true,
-            disable_float_background = true,
-            disable_italics = false,
-        })
+    init = function()
+        local hl = vim.api.nvim_set_hl
+        vim.cmd('colorscheme zenbones')
 
-        -- Set colorscheme after options
-        vim.cmd('colorscheme rose-pine')
+        -- remove background
+        hl(0, "Normal", { bg = "none" })
+        hl(0, "NormalFloat", { bg = "none" })
 
+        -- change colors
+        hl(0, "ColorColumn", { bg = '#282c34' })
+        hl(0, "CursorLine", { bg = '#282c34' })
 
-        -- markdown syntax
-        vim.cmd [[let g:markdown_fenced_languages = ['ts=typescript', 'js=javascript', 'lua', 'c'] ]]
-
-        -- highlight
-        vim.cmd [[:highlight GitSignsAdd guibg=NONE]]
-        vim.cmd [[:highlight GitSignsChange guibg=NONE]]
-        vim.cmd [[:highlight GitSignsDelete guibg=NONE]]
-    end,
+        -- change statusline
+        hl(0, 'StatusLine', { bg = "#282c34", fg = "#abb2bf" })
+        hl(0, 'StatusLineNC', { bg = "#282c34", fg = "#5c6370" })
+    end
 }

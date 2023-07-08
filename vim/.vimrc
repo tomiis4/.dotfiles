@@ -68,7 +68,7 @@ let mapleader=" "
 
 nnoremap <leader>t :vertical :terminal <CR>
 nnoremap <C-f> :E <CR>
-nnoremap ff :b 
+nnoremap ff :ls<CR>:b<Space>
 
 nnoremap <leader>h :wincmd h <CR>
 nnoremap <leader>l :wincmd l <CR>
@@ -96,7 +96,6 @@ hi Type guifg=#8ec07c guibg=NONE
 
 " Search highlighting
 hi Search guifg=#000000 guibg=#d3869b
-hi IncSearch guifg=#000000 guibg=#fabd2f
 
 " Cursor
 hi Cursor guifg=NONE guibg=#ebdbb2

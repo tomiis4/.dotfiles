@@ -1,6 +1,7 @@
 return {
     'lewis6991/gitsigns.nvim',
-    event = 'VeryLazy',
+    lazy = true,
+    event = 'InsertEnter',
     config = function()
         require('gitsigns').setup {
             current_line_blame = true,
@@ -9,8 +10,7 @@ return {
             }
         }
 
-        local opts = { silent = true }
-        vim.keymap.set('n', 'gp', ':Gitsigns preview_hunk <CR>', opts)
-        vim.keymap.set('n', 'gn', ':Gitsigns next_hunk <CR>', opts)
+        vim.keymap.set('n', 'gp', ':Gitsigns preview_hunk <CR>', {})
+        vim.keymap.set('n', 'gn', ':Gitsigns next_hunk <CR>', {})
     end
 }

@@ -1,27 +1,25 @@
--- display
-vim.opt.number           = true
-vim.opt.relativenumber   = true
-vim.opt.termguicolors    = true
+vim.opt.number = true
+vim.opt.relativenumber = true
 
-vim.opt.cursorline       = false
-vim.opt.linebreak        = true
-vim.opt.wrap             = true
-vim.opt.colorcolumn      = { 80 }
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 
+vim.opt.smartindent = true
+
+vim.opt.wrap = true
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undofile = true
+
+vim.opt.termguicolors = true
 vim.cmd('language en_US')
 vim.cmd('syntax on')
 
-local width=4
-vim.opt.tabstop       = width
-vim.opt.softtabstop   = width
-vim.opt.shiftwidth    = width
-vim.opt.expandtab     = true
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.laststatus = 3
 
-vim.opt.smartindent   = true
-
-vim.opt.swapfile      = false
-vim.opt.backup        = false
-vim.opt.undofile      = true
-
-vim.opt.showtabline=2
-vim.opt.laststatus=3
+vim.opt.colorcolumn = "80"

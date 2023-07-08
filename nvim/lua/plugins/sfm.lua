@@ -1,0 +1,50 @@
+return {
+    --'dinhhuy258/sfm.nvim',
+    -- 'SidOfc/carbon.nvim',
+    'tamago324/lir.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons' },
+    -- event = 'VeryLazy',
+    keys = {
+        { '<C-f>', ":lua require 'lir.float'.init() <CR>" }
+    },
+    config = function()
+        local actions = require 'lir.actions'
+
+        require 'lir'.setup {
+            show_hidden_files = false,
+            ignore = { "node_modules" },
+            devicons = {
+                enable = true,
+                highlight_dirname = false
+            },
+
+            mappings = {
+                ['<CR>']  = actions.edit, -- open file
+                ['<C-s>'] = actions.split, -- open split
+                ['<C-v>'] = actions.vsplit, -- open vsplit
+
+                [']']     = actions.up, -- up dir
+                ['q']     = actions.quit,
+
+                ['/']     = actions.mkdir,
+                ['%']     = actions.newfile,
+                ['r']     = actions.rename,
+                ['Y']     = actions.yank_path,
+                ['d']     = actions.delete,
+            },
+            float = {
+                winblend = 0,
+                win_opts = function()
+                    return {
+                        border = {
+                            "╭", "─", "╮", "│", "╯", "─", "╰", "│",
+                        },
+                    }
+                end,
+            },
+            hide_cursor = true
+        }
+
+        vim.keymap.set('n', '<C-f>', ":lua require'lir.float'.toggle() <CR>", { silent = true })
+    end
+}

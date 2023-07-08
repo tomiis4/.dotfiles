@@ -1,32 +1,27 @@
 return {
-    'hrsh7th/nvim-cmp',
-    event = {
-        'InsertEnter', 'CmdlineEnter'
-    },
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
     dependencies = {
-        -- cmp sources
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+        'hrsh7th/cmp-nvim-lsp-signature-help',
+
         'neovim/nvim-lspconfig',
-        'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-nvim-lua',
-        'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-path',
         'hrsh7th/cmp-cmdline',
         'hrsh7th/cmp-calc',
-
-        -- lsp
-        'hrsh7th/cmp-nvim-lsp-signature-help',
-
         -- Snippets
         'L3MON4D3/LuaSnip',
         'saadparwaiz1/cmp_luasnip',
         'rafamadriz/friendly-snippets',
     },
     config = function()
-        local cmp = require('cmp')
+        local cmp = require("cmp")
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
         -- luasnip
-        require('luasnip.loaders.from_vscode').lazy_load()
+        require("luasnip.loaders.from_vscode").lazy_load()
 
         cmp.setup({
             snippet = {
@@ -36,13 +31,12 @@ return {
             },
             mapping = cmp.mapping.preset.insert({
                 ['<Tab>'] = cmp.mapping.select_next_item(cmp_select),
-                ['<S-Tab>'] = cmp.mapping.select_prev_item(cmp_select),
                 ['<C-c>'] = cmp.mapping.abort(),
                 ['<CR>'] = cmp.mapping.confirm({ select = true }),
             }),
             window = {
-                completion = cmp.config.window.bordered({border='rounded'}),
-                documentation = cmp.config.window.bordered({border='rounded'}),
+                completion = cmp.config.window.bordered(),
+                documentation = cmp.config.window.bordered(),
             },
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
@@ -56,6 +50,14 @@ return {
                     hl_group = 'Comment',
                 },
             },
+        })
+
+        cmp.setup.filetype('gitcommit', {
+            sources = cmp.config.sources({
+                { name = 'cmp_git' },
+            }, {
+                { name = 'buffer' },
+            })
         })
 
         cmp.setup.cmdline({ '/', '?' }, {
@@ -91,22 +93,21 @@ return {
         }
 
         vim.diagnostic.config({
-            virtual_text = { prefix = '' },
+            virtual_text = { prefix = "" },
             update_in_insert = false,
             signs = true,
             underline = true,
             severity_sort = true,
-            float = { border = 'rounded' },
+            float = { border = "rounded" },
         })
 
-        local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
+        local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
         for type, icon in pairs(signs) do
-            local hl = 'DiagnosticSign' .. type
+            local hl = "DiagnosticSign" .. type
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
         end
 
-        -- keymaps for format/open diagnostic
-        vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { silent = true })
-        vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { silent = true} )
+        vim.keymap.set("n", "bf", vim.lsp.buf.format, {})
+        vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
     end,
 }
