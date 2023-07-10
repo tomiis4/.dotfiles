@@ -1,9 +1,6 @@
 return {
-    --'dinhhuy258/sfm.nvim',
-    -- 'SidOfc/carbon.nvim',
     'tamago324/lir.nvim',
     dependencies = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons' },
-    -- event = 'VeryLazy',
     keys = {
         { '<C-f>', ":lua require 'lir.float'.init() <CR>" }
     },
@@ -20,7 +17,7 @@ return {
 
             mappings = {
                 ['<CR>']  = actions.edit, -- open file
-                ['<C-s>'] = actions.split, -- open split
+                ['<C-h>'] = actions.split, -- open split
                 ['<C-v>'] = actions.vsplit, -- open vsplit
 
                 [']']     = actions.up, -- up dir

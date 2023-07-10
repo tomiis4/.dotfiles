@@ -34,3 +34,7 @@ keyset('n', '<C-k>', ':bn <CR>')
 
 -- force-delete buffer
 keyset('n', '<C-x>', ':bd! <CR>')
+
+-- copy to system register
+keyset('v', '<leader>y','"+y')
+keyset('v', '<leader>p','"+p')

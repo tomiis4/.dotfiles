@@ -1,7 +1,6 @@
 return {
     'j-morano/buffer_manager.nvim',
     dependencies = {
-        'nvim-tree/nvim-web-devicons',
         'nvim-lua/plenary.nvim',
     },
     keys = {

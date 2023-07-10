@@ -12,20 +12,28 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local opts = {
-  performance = {
-    rtp = {
-      disabled_plugins = {
-        "gzip",
-        "matchit",
-        -- "matchparen",
-        "netrwPlugin",
-        "tarPlugin",
-        "tohtml",
-        "tutor",
-        "zipPlugin",
-      },
+    performance = {
+        rtp = {
+            disabled_plugins = {
+                "gzip",
+                "matchit",
+                -- "matchparen",
+                "netrwPlugin",
+                "tarPlugin",
+                "tohtml",
+                "tutor",
+                "zipPlugin",
+            },
+        },
     },
-  },
+    ui = {
+        border = 'rounded',
+    },
+    change_detection = {
+        -- automatically check for config file changes and reload the ui
+        enabled = false,
+        notify = false, -- get a notification when changes are found
+    }
 }
 
 require("lazy").setup("plugins", opts)
