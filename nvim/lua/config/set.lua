@@ -23,3 +23,8 @@ vim.opt.signcolumn = "yes"
 vim.opt.laststatus = 3
 
 vim.opt.colorcolumn = "80"
+
+vim.opt.title = true
+vim.opt.titlestring = "NeoVim"
+
+vim.opt.shell = "nu.exe"

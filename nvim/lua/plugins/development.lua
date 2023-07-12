@@ -17,11 +17,12 @@ return {
     {
         -- 'tomiis4/BufferTabs.nvim',
         dir = 'C:\\Programming\\Lua\\BufferTabs.nvim',
+        cond = false,
         config = function()
             require('buffertabs').setup({
                 direction = 'column',
                 horizontal = 'right',
-                vertical = 'top',
+                vertical = 'bottom',
             })
 
             vim.keymap.set('n', '<leader>b', ":lua require'buffertabs'.toggle() <cr>", {
