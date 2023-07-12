@@ -1,6 +1,6 @@
 return {
     {
-        -- tomiis4/hypersonic.nvim
+        -- 'tomiis4/hypersonic.nvim',
         dir = 'C:\\Programming\\Lua\\Hypersonic.nvim',
         event = "VeryLazy",
         config = function()
@@ -15,12 +15,17 @@ return {
         end,
     },
     {
-        -- tomiis4/BufferTabs.nvim
+        -- 'tomiis4/BufferTabs.nvim',
         dir = 'C:\\Programming\\Lua\\BufferTabs.nvim',
         config = function()
             require('buffertabs').setup({
+                direction = 'column',
                 horizontal = 'right',
-                vertical = 'bottom'
+                vertical = 'top',
+            })
+
+            vim.keymap.set('n', '<leader>b', ":lua require'buffertabs'.toggle() <cr>", {
+                silent = true
             })
         end
     }
