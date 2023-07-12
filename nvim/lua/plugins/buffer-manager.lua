@@ -4,7 +4,7 @@ return {
         'nvim-lua/plenary.nvim',
     },
     keys = {
-        { '<leader>o', ':lua require("buffer_manager.ui").toggle_quick_menu()<cr>', desc = '' },
+        { 'bf', ':lua require("buffer_manager.ui").toggle_quick_menu()<cr>', desc = '' },
     },
     config = function()
         local opts = { noremap = true, silent = true }
@@ -38,6 +38,6 @@ return {
                 opts
             )
         end
-        map('n', '<leader>o', bmui.toggle_quick_menu, opts)
+        map('n', 'bf', bmui.toggle_quick_menu, opts)
     end
 }

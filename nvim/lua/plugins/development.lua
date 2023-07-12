@@ -17,10 +17,10 @@ return {
     {
         -- 'tomiis4/BufferTabs.nvim',
         dir = 'C:\\Programming\\Lua\\BufferTabs.nvim',
-        cond = false,
+        -- cond = false,
         config = function()
             require('buffertabs').setup({
-                direction = 'column',
+                display = 'column',
                 horizontal = 'right',
                 vertical = 'bottom',
             })

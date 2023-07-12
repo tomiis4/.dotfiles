@@ -18,7 +18,7 @@ cfg.font = wezterm.font('JetBrainsMono NF')
 cfg.font_size = 14
 
 -- colors
-cfg.window_background_image = 'C:\\wallpapers\\mountain-1.png'
+cfg.window_background_image = wezterm.home_dir .. '\\.config\\wallpapers\\mountain-1-rose-pine.png'
 cfg.colors = colors
 cfg.window_frame = window_frame
 
@@ -32,7 +32,7 @@ cfg.window_padding = {
 }
 
 -- shell
-cfg.default_prog = { 'C:\\Program Files\\scoop\\apps\\nu\\0.82.0\\nu.exe' }
+cfg.default_prog = { 'nu' }
 
 -- keymaps
 cfg.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
