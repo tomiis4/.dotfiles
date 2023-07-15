@@ -3,8 +3,6 @@ local act = wezterm.action
 local theme = require('lua/rose-pine')
 local cfg = {}
 
--- C-S-t: new window
-
 local colors = theme.colors()
 local window_frame = theme.window_frame()
 
@@ -22,13 +20,34 @@ cfg.window_background_image = wezterm.home_dir .. '\\.config\\wallpapers\\mounta
 cfg.colors = colors
 cfg.window_frame = window_frame
 
+local battery_icons = { '󰂎', '󰁺', '󰁻', '󰁼', '󰁾', '󰁿', '󰂀', '󰂁', '󰂂', '󰁹', '󰁹' }
+wezterm.on("update-right-status", function(window, pane)
+    -- Day Month DD Hour:Minute
+    local date = wezterm.strftime("%a %b %-d %H:%M ");
+
+    local battery_status = ''
+    for _, b in ipairs(wezterm.battery_info()) do
+        local battery = b.state_of_charge * 100
+        local icon = battery_icons[math.floor(battery / 10) + 1]
+
+        battery_status = icon .. string.format(' %.0f%%', battery)
+    end
+
+    window:set_right_status(wezterm.format({ {
+        Text = battery_status .. '  ' .. date
+    } }))
+end)
+
+
 -- display
+-- cfg.window_decorations = "NONE"
+cfg.hide_tab_bar_if_only_one_tab = true
 cfg.use_fancy_tab_bar = false
 cfg.window_padding = {
-    left = 8,
-    right = 8, -- also the width of the scroll bar
-    top = 5,
-    bottom = 5,
+    left = 10,
+    right = 10,
+    top = 10,
+    bottom = 10,
 }
 
 -- shell
@@ -55,10 +74,24 @@ cfg.keys = {
     {
         key = 'w',
         mods = 'CTRL',
-        action = act.CloseCurrentPane{ confirm = true },
+        action = act.CloseCurrentPane { confirm = false },
     },
+    {
+        key = 'c',
+        mods = 'CTRL',
+        action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection',
+    },
+    {
+        key = 'v',
+        mods = 'CTRL',
+        action = act.PasteFrom 'PrimarySelection'
+    },
+    {
+        key = 'f',
+        mods = 'LEADER',
+        action = wezterm.action.ShowTabNavigator
+    }
 }
-
 
 
 return cfg

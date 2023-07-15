@@ -17,7 +17,7 @@ return {
     {
         -- 'tomiis4/BufferTabs.nvim',
         dir = 'C:\\Programming\\Lua\\BufferTabs.nvim',
-        -- cond = false,
+        cond = false,
         config = function()
             require('buffertabs').setup({
                 display = 'column',
@@ -27,6 +27,21 @@ return {
 
             vim.keymap.set('n', '<leader>b', ":lua require'buffertabs'.toggle() <cr>", {
                 silent = true
+            })
+        end
+    },
+    {
+        -- 'tomiis4/BufEx.nvim',
+        dir = 'C:\\Programming\\Lua\\BufEx.nvim',
+        event = 'BufEnter',
+        config = function()
+            require('bufex').setup({
+                -- local_transfer = {
+                --     name = 'tomiis',
+                --     opts = {
+                --         server_port = 5500,
+                --     }
+                -- },
             })
         end
     }
