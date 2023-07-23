@@ -33,16 +33,21 @@ return {
     {
         -- 'tomiis4/BufEx.nvim',
         dir = 'C:\\Programming\\Lua\\BufEx.nvim',
-        event = 'BufEnter',
+        keys = {
+            {'cp', ':lua require"bufex".setup() <CR>'}
+        },
         config = function()
-            require('bufex').setup({
+            -- require('bufex').setup({
                 -- local_transfer = {
                 --     name = 'tomiis',
                 --     opts = {
                 --         server_port = 5500,
                 --     }
                 -- },
-            })
+            --     float = {
+            --         border = 'rounded'
+            --     }
+            -- })
         end
     }
 }

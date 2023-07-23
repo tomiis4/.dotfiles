@@ -30,7 +30,7 @@ vim.api.nvim_create_autocmd('ColorScheme', {
 return {
     {
         'mcchrish/zenbones.nvim',
-        cond = true,
+        cond = false,
         dependencies = {
             'rktjmp/lush.nvim'
         },

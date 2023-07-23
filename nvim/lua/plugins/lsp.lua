@@ -11,7 +11,6 @@ return {
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-path',
         'hrsh7th/cmp-cmdline',
-        'hrsh7th/cmp-calc',
 
         -- lsp
         'hrsh7th/cmp-nvim-lsp-signature-help',
@@ -41,15 +40,14 @@ return {
                 ['<CR>'] = cmp.mapping.confirm({ select = true }),
             }),
             window = {
-                completion = cmp.config.window.bordered({border='rounded'}),
-                documentation = cmp.config.window.bordered({border='rounded'}),
+                completion = cmp.config.window.bordered({ border = 'rounded' }),
+                documentation = cmp.config.window.bordered({ border = 'rounded' }),
             },
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' },
                 { name = 'nvim_lsp_signature_help' },
                 { name = 'buffer' },
-                { name = 'calc' },
             }),
             experimental = {
                 ghost_text = {
@@ -77,17 +75,20 @@ return {
         -- Set up lspconfig.
         local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+        require('lspconfig.ui.windows').default_options.border = 'rounded'
         require('lspconfig')['gopls'].setup { capabilities = capabilities }
         require('lspconfig')['tsserver'].setup { capabilities = capabilities }
-        require('lspconfig')['lua_ls'].setup {
-            capabilities = capabilities,
+        require 'lspconfig'.lua_ls.setup {
             settings = {
                 Lua = {
+                    runtime = {
+                        version = 'LuaJIT',
+                    },
                     diagnostics = {
-                        globals = { 'vim' }
-                    }
-                }
-            }
+                        globals = { 'vim' },
+                    },
+                },
+            },
         }
 
         vim.diagnostic.config({
@@ -107,6 +108,6 @@ return {
 
         -- keymaps for format/open diagnostic
         vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { silent = true })
-        vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { silent = true} )
+        vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { silent = true })
     end,
 }

@@ -41,13 +41,14 @@ end)
 
 -- display
 -- cfg.window_decorations = "NONE"
-cfg.hide_tab_bar_if_only_one_tab = true
+cfg.hide_tab_bar_if_only_one_tab = false
+cfg.tab_bar_at_bottom = true
 cfg.use_fancy_tab_bar = false
 cfg.window_padding = {
     left = 10,
     right = 10,
     top = 10,
-    bottom = 10,
+    bottom = 0,
 }
 
 -- shell

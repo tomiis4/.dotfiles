@@ -3,8 +3,9 @@ return {
     dependencies = {
         'nvim-lua/plenary.nvim',
     },
+    branc = 'handle-short-duplicates',
     keys = {
-        { 'bf', ':lua require("buffer_manager.ui").toggle_quick_menu()<cr>', desc = '' },
+        { '<leader>o', ':lua require("buffer_manager.ui").toggle_quick_menu()<cr>', desc = '' },
     },
     config = function()
         local opts = { noremap = true, silent = true }
@@ -38,6 +39,6 @@ return {
                 opts
             )
         end
-        map('n', 'bf', bmui.toggle_quick_menu, opts)
+        map('n', '<leader>o', bmui.toggle_quick_menu, opts)
     end
 }

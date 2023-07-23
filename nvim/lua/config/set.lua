@@ -25,6 +25,11 @@ vim.opt.laststatus = 3
 vim.opt.colorcolumn = "80"
 
 vim.opt.title = true
-vim.opt.titlestring = "NeoVim"
+vim.api.nvim_create_autocmd('BufEnter', {
+    callback = function ()
+        local name = vim.api.nvim_buf_get_name(0):match('[^\\/]+$') or ''
+        vim.opt.titlestring = ' ' .. name
+    end
+})
 
 vim.opt.shell = "nu.exe"
