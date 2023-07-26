@@ -7,4 +7,4 @@ Shell: nushell\
 Prompt: <a href='https://starship.rs'>starship.rs</a>
 
 ### Preview
-<img src='https://media.discordapp.net/attachments/772927831441014847/1133788022312276049/image.png?width=938&height=497'>
+<img src='https://media.discordapp.net/attachments/772927831441014847/1133801724306538536/image.png?width=935&height=497'>
