@@ -32,8 +32,6 @@ local function get_hl(hl, type)
 end
 
 local function add_hl()
-    vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#282C34", fg = "NONE" })
-    vim.api.nvim_set_hl(0, "Pmenu", { fg = "#C5CDD9", bg = "#22252A" })
     vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = "#7E8294", bg = "NONE", strikethrough = true })
     vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#82AAFF", bg = "NONE", bold = true })
     vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#82AAFF", bg = "NONE", bold = true })
@@ -62,6 +60,7 @@ local function add_hl()
     vim.api.nvim_set_hl(0, "CmpItemKindInterface", { fg = "#D8EEEB", bg = "#58B5A8" })
     vim.api.nvim_set_hl(0, "CmpItemKindColor", { fg = "#D8EEEB", bg = "#58B5A8" })
     vim.api.nvim_set_hl(0, "CmpItemKindTypeParameter", { fg = "#D8EEEB", bg = "#58B5A8" })
+
     vim.api.nvim_set_hl(0, 'CmpN', { bg = get_hl('CursorLine', 'background') })
     vim.api.nvim_set_hl(0, 'CmpL', { bg = get_hl('Visual', 'background') })
 end
@@ -110,7 +109,7 @@ return {
                     border = 'none',
                     col_offset = -3,
                     side_padding = 0,
-                    winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+                    winhighlight = "Normal:CmpN,CursorLine:CmpL",
                 },
                 documentation = {
                     border = 'none',
