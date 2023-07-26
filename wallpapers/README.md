@@ -33,6 +33,9 @@
 ### Mountain-2
 <img src="./mountain-2.jpg">
 
+### Nord City
+<img src="./nord-city.jpeg">
+
 ### Psychadelic
 <img src="./psychadelic.jpg">
 
@@ -41,3 +44,11 @@
 
 ### Tokyo-2
 <img src="./tokyo-2.jpg">
+
+# Modified wallpapers
+
+### mountain-1-rose-pine
+<img src="./mountain-1-rose-pine.png">
+
+### nord-theme-city
+<img src="./nord-theme-city.png">

@@ -17,7 +17,8 @@ cfg.font = wezterm.font('Hurmit Nerd Font Mono')
 cfg.font_size = 12
 
 -- colors
-cfg.window_background_image = wezterm.home_dir .. '\\.config\\wallpapers\\mountain-1-rose-pine.png'
+cfg.window_background_image = wezterm.home_dir .. '\\.config\\wallpapers\\nord-theme-city.png'
+-- cfg.window_background_image = wezterm.home_dir .. '\\.config\\wallpapers\\mountain-1-rose-pine.png'
 cfg.colors = colors
 cfg.window_frame = window_frame
 
