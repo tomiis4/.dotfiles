@@ -1,0 +1,72 @@
+snippet fun
+	function M.${1:name}(${2:params})
+		${0:$VISUAL}
+	end
+
+snippet lfun
+	local function ${1:name}(${2:params})
+		${0:$VISUAL}
+	end
+
+snippet loc
+	local ${1:name} = 0
+
+snippet fori
+	for i = 1, ${1:range} do
+		${0:$VISUAL}
+	end
+
+snippet forp
+	for k, v in pairs(${1:table}) do
+		${0:$VISUAL}
+	end
+
+snippet mod
+	local M = {}
+	local api = vim.api
+	local config = require('${1:cfg_path}')
+
+	function M.setup(cfg)
+		config = cfg
+	end
+
+	return M
+
+snippet if
+	if $1 then
+		$2
+	end
+
+snippet print
+	print('${1:string}')
+
+snippet printt
+	print(vim.inspect(${1:tbl}))
+
+snippet ife
+	if ${1:cond} then
+		${2:-- if condition}
+	else
+		${0:-- else}
+	end
+
+snippet elif
+	elseif $1 then
+		$0
+
+snippet req
+	require('${1:mod}')
+
+
+snippet ---@type
+	---@type ${1:type}
+
+snippet ---@class
+	---@class ${1:class}
+	---@field ${2:field} ${3:type}
+
+snippet TODO
+	-- TODO: ${1:todo}
+
+snippet FIXME
+	-- TODO: ${1:fixme}

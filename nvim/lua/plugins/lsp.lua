@@ -14,39 +14,51 @@ return {
 
         -- lsp
         'hrsh7th/cmp-nvim-lsp-signature-help',
+        'onsails/lspkind.nvim',
 
         -- Snippets
-        'L3MON4D3/LuaSnip',
-        'saadparwaiz1/cmp_luasnip',
-        'rafamadriz/friendly-snippets',
+        'dcampos/cmp-snippy',
+        'dcampos/nvim-snippy',
     },
     config = function()
+        local function get_hl(hl, type)
+            local high = vim.api.nvim_get_hl_by_name(hl, true)[type]
+            return high
+        end
+
+        local lspkind = require('lspkind')
         local cmp = require('cmp')
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
-        -- luasnip
-        require('luasnip.loaders.from_vscode').lazy_load()
+        vim.api.nvim_set_hl(0, 'CmpN', { bg = get_hl('CursorLine', 'background') })
+        vim.api.nvim_set_hl(0, 'CmpL', { bg = get_hl('Visual', 'background') })
 
         cmp.setup({
             snippet = {
                 expand = function(args)
-                    require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+                    require('snippy').expand_snippet(args.body)
                 end,
             },
             mapping = cmp.mapping.preset.insert({
                 ['<Tab>'] = cmp.mapping.select_next_item(cmp_select),
                 ['<S-Tab>'] = cmp.mapping.select_prev_item(cmp_select),
-                ['<C-c>'] = cmp.mapping.abort(),
+                ['<C-e>'] = cmp.mapping.abort(),
                 ['<CR>'] = cmp.mapping.confirm({ select = true }),
             }),
             window = {
-                completion = cmp.config.window.bordered({ border = 'rounded' }),
-                documentation = cmp.config.window.bordered({ border = 'rounded' }),
+                completion = {
+                    border = 'none',
+                    winhighlight = "Normal:CmpN,CursorLine:CmpL"
+                },
+                documentation = {
+                    border = 'none',
+                    winhighlight = "Normal:CmpN,CursorLine:CmpL"
+                }
             },
             sources = cmp.config.sources({
-                { name = 'nvim_lsp' },
-                { name = 'luasnip' },
+                { name = 'snippy' },
                 { name = 'nvim_lsp_signature_help' },
+                { name = 'nvim_lsp' },
                 { name = 'buffer' },
             }),
             experimental = {
@@ -54,6 +66,17 @@ return {
                     hl_group = 'Comment',
                 },
             },
+            formatting = {
+                format = lspkind.cmp_format({
+                    mode = 'symbol_text', -- show only symbol annotations
+                    maxwidth = 50,
+                    ellipsis_char = '...',
+
+                    before = function(_, vim_item)
+                        return vim_item
+                    end
+                })
+            }
         })
 
         cmp.setup.cmdline({ '/', '?' }, {
