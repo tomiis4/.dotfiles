@@ -1,10 +1,10 @@
 # My Windows Config
-Font: <a href="https://www.nerdfonts.com/font-downloads"> JetBrainsMono NF  </a>\
-Theme: <a href="https://github.com/rose-pine"> Rose Pine </a>\
+Font: <a href='https://www.nerdfonts.com/font-downloads'> Hurmit NF </a>\
+Theme: <a href='https://github.com/wadackel/vim-dogrun'> Dogrun </a>\
 Editor: NeoVim\
 Terminal: WezTerm\
 Shell: nushell\
-Prompt: <a href="https://starship.rs">starship.rs</a>
+Prompt: <a href='https://starship.rs'>starship.rs</a>
 
 ### Preview
-<img src='https://media.discordapp.net/attachments/772927831441014847/1128730336910643290/image.png?width=900&height=476'>
+<img src='https://media.discordapp.net/attachments/772927831441014847/1133788022312276049/image.png?width=938&height=497'>

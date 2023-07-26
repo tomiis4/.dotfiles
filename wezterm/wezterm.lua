@@ -1,29 +1,29 @@
 local wezterm = require('wezterm')
 local act = wezterm.action
-local theme = require('lua/rose-pine')
+local dogrun = require('lua/dogrun')
 local cfg = {}
 
-local colors = theme.colors()
-local window_frame = theme.window_frame()
-
--- clean error message
+-- clean error messages
 if wezterm.config_builder then
     cfg = wezterm.config_builder()
 end
 
 -- font
 cfg.font = wezterm.font('Hurmit Nerd Font Mono')
--- cfg.font = wezterm.font('JetBrainsMono NF')
 cfg.font_size = 12
 
 -- colors
-cfg.window_background_image = wezterm.home_dir .. '\\.config\\wallpapers\\nord-theme-city.png'
--- cfg.window_background_image = wezterm.home_dir .. '\\.config\\wallpapers\\mountain-1-rose-pine.png'
-cfg.colors = colors
-cfg.window_frame = window_frame
+local img_path = wezterm.home_dir .. '\\.config\\wallpapers\\'
+cfg.window_background_image = img_path .. 'nord-theme-city.png'
+cfg.colors = dogrun
 
-local battery_icons = { '󰂎', '󰁺', '󰁻', '󰁼', '󰁾', '󰁿', '󰂀', '󰂁', '󰂂', '󰁹', '󰁹' }
-wezterm.on("update-right-status", function(window, pane)
+local battery_icons = {
+    '󰂎', '󰁺', '󰁻',
+    '󰁼', '󰁾', '󰁿',
+    '󰂀', '󰂁', '󰂂',
+    '󰁹', '󰁹'
+}
+wezterm.on("update-right-status", function(window, _)
     -- Day Month DD Hour:Minute
     local date = wezterm.strftime("%a %b %-d %H:%M ");
 
@@ -42,10 +42,11 @@ end)
 
 
 -- display
--- cfg.window_decorations = "NONE"
+cfg.tab_max_width = 18
 cfg.hide_tab_bar_if_only_one_tab = false
 cfg.tab_bar_at_bottom = true
 cfg.use_fancy_tab_bar = false
+cfg.check_for_updates = false
 cfg.window_padding = {
     left = 10,
     right = 10,
