@@ -68,12 +68,16 @@ let mapleader=" "
 
 nnoremap <leader>t :vertical :terminal <CR>
 nnoremap <C-f> :E <CR>
-nnoremap ff :ls<CR>:b<Space>
+nnoremap ff :ls<CR>:b<Space><tab>
 
 nnoremap <leader>h :wincmd h <CR>
 nnoremap <leader>l :wincmd l <CR>
 nnoremap <leader>k :wincmd k <CR>
 nnoremap <leader>j :wincmd j <CR>
+
+nnoremap mm :nohlsearch <CR>
+nnoremap n nzzzv
+nnoremap N nzzzv
 
 nnoremap <CR> ciw
 

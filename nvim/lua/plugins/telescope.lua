@@ -17,13 +17,13 @@ return {
                 layout_config = {
                     horizontal = {
                         prompt_position = 'top',
-                        preview_width = 0.55,
+                        preview_width = 0.4,
                         results_width = 0.8,
                     },
                     vertical = {
                         mirror = false,
                     },
-                    width = 0.87,
+                    width = 0.70,
                     height = 0.9,
                     preview_cutoff = 120,
                 },

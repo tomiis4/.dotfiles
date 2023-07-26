@@ -12,8 +12,9 @@ if wezterm.config_builder then
 end
 
 -- font
-cfg.font = wezterm.font('JetBrainsMono NF')
-cfg.font_size = 14
+cfg.font = wezterm.font('Hurmit Nerd Font Mono')
+-- cfg.font = wezterm.font('JetBrainsMono NF')
+cfg.font_size = 12
 
 -- colors
 cfg.window_background_image = wezterm.home_dir .. '\\.config\\wallpapers\\mountain-1-rose-pine.png'
