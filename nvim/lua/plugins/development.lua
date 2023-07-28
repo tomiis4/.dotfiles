@@ -37,17 +37,18 @@ return {
             {'cp', ':lua require"bufex".setup() <CR>'}
         },
         config = function()
-            -- require('bufex').setup({
-                -- local_transfer = {
-                --     name = 'tomiis',
-                --     opts = {
-                --         server_port = 5500,
-                --     }
-                -- },
-            --     float = {
-            --         border = 'rounded'
-            --     }
-            -- })
+            require('bufex').setup({
+                local_transfer = {
+                    name = 'tomiis',
+                    -- password = '12',
+                    opts = {
+                        server_port = 5500,
+                    }
+                },
+                float = {
+                    border = 'rounded'
+                }
+            })
         end
     }
 }
