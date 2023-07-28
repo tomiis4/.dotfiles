@@ -24,6 +24,9 @@ keyset('n', 'mm', ':nohlsearch <CR>')
 -- replace word (best keybinding ever)
 keyset('n', '<cr>', 'ciw')
 
+-- disable q: (command line history)
+keyset('n', 'q:', ':q', { silent = false })
+
 -- center screen next/prev occurrence search
 keyset('n', 'n', 'nzzzv')
 keyset('n', 'N', 'Nzzzv')

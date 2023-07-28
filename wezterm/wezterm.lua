@@ -94,7 +94,7 @@ cfg.keys = {
         key = 'f',
         mods = 'LEADER',
         action = wezterm.action.ShowTabNavigator
-    }
+    },
 }
 
 
