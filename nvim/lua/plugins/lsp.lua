@@ -117,10 +117,12 @@ return {
                 }
             },
             sources = cmp.config.sources({
-                { name = 'snippy' },
-                { name = 'nvim_lsp_signature_help' },
-                { name = 'nvim_lsp' },
-                { name = 'buffer' },
+                { name = 'snippy', priority = 1000 },
+                { name = 'nvim_lsp_signature_help', priority = 900 },
+                { name = 'nvim_lua', priority = 950 },
+                { name = 'path', priority = 900 },
+                { name = 'nvim_lsp', priority = 400 },
+                { name = 'buffer', priority = 400 },
             }),
             experimental = {
                 ghost_text = {
@@ -190,7 +192,7 @@ return {
             float = { border = 'rounded' },
         })
 
-        local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
+        local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
         for type, icon in pairs(signs) do
             local hl = 'DiagnosticSign' .. type
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
