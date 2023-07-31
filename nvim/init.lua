@@ -1,2 +1,2 @@
-require('config')
 require('core')
+require('config')

@@ -87,6 +87,7 @@ return {
         'dcampos/nvim-snippy',
     },
     config = function()
+        local is_transparent = vim.g.is_transparent or false
         local cmp = require('cmp')
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
@@ -109,20 +110,22 @@ return {
                     border = 'none',
                     col_offset = -3,
                     side_padding = 0,
-                    winhighlight = "Normal:CmpN,CursorLine:CmpL",
+                    winhighlight = is_transparent and 'Normal:CmpN,CursorLine:CmpL'
+                    or 'Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None',
                 },
                 documentation = {
-                    border = 'none',
-                    winhighlight = "Normal:CmpN,CursorLine:CmpL"
+                    border = is_transparent and 'none' or 'single',
+                    winhighlight = is_transparent and 'Normal:CmpN,CursorLine:CmpL'
+                    or 'FloatBorder:NormalFloat',
                 }
             },
             sources = cmp.config.sources({
-                { name = 'snippy', priority = 1000 },
+                { name = 'snippy',                  priority = 1000 },
                 { name = 'nvim_lsp_signature_help', priority = 900 },
-                { name = 'nvim_lua', priority = 950 },
-                { name = 'path', priority = 900 },
-                { name = 'nvim_lsp', priority = 400 },
-                { name = 'buffer', priority = 400 },
+                { name = 'nvim_lua',                priority = 950 },
+                { name = 'path',                    priority = 900 },
+                { name = 'nvim_lsp',                priority = 400 },
+                { name = 'buffer',                  priority = 400 },
             }),
             experimental = {
                 ghost_text = {
