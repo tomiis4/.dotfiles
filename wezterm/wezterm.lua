@@ -1,6 +1,6 @@
 local wezterm = require('wezterm')
 local act = wezterm.action
-local dogrun = require('lua/dogrun')
+local dogrun = require('colors.dogrun')
 local cfg = {}
 
 -- clean error messages
