@@ -1,6 +1,4 @@
 local api = vim.api
-local ns = api.nvim_create_namespace('Transparent')
-
 vim.g.is_transparent = true
 
 ---@param hl string
@@ -20,25 +18,26 @@ api.nvim_create_user_command(
 )
 
 vim.api.nvim_create_autocmd('ColorScheme', {
-    group = ns,
     callback = function()
         if vim.g.is_transparent then
             local hl = vim.api.nvim_set_hl
-            local hl_bg = get_hl('FloatBorder', 'foreground')
+            local fg_border = get_hl('FloatBorder', 'foreground')
+            local bg_none = { bg = 'none' }
 
             -- remove background
-            hl(0, "Normal", { bg = "none" })
-            hl(0, "NormalNC", { bg = "none" })
-            hl(0, "NormalFloat", { bg = "none" })
-            hl(0, "FloatBorder", { bg = "none" })
+            hl(0, 'Normal', bg_none)
+            hl(0, 'NormalNC', bg_none)
+            hl(0, 'NormalFloat', bg_none)
+            hl(0, 'FloatBorder', bg_none)
+            hl(0, 'Error', bg_none)
 
             -- change colors
-            hl(0, "ColorColumn", { bg = '#282c34' })
-            hl(0, "CursorLine", { bg = '#282c34' })
+            hl(0, 'ColorColumn', { bg = '#282c34' })
+            hl(0, 'CursorLine', { bg = '#282c34' })
 
             -- change statusline
-            hl(0, 'StatusLine', { bg = hl_bg, fg = "#282c34" })
-            hl(0, 'StatusLineNC', { bg = hl_bg, fg = "#5c6370" })
+            hl(0, 'StatusLine', { bg = fg_border, fg = '#282c34' })
+            hl(0, 'StatusLineNC', { bg = fg_border, fg = '#5c6370' })
         end
     end
 })

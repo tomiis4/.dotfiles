@@ -16,14 +16,16 @@ alias gch = git checkout
 alias pwd = echo $env.PWD
 alias cls = clear
 alias n = nvim
+alias v = vim
 
 
-alias cfg = cd $env.XDG_CONFIG_HOME
+alias cfg = cd ~/.config
 
 
 alias d_lua = cd C:\Programming\Lua
 alias d_ts = cd C:\Programming\TypeScript
 alias d_lazy = cd ~\AppData\Local\nvim-data\lazy
+alias d_p = cd C:\Programming
 
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
