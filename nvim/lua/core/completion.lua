@@ -16,9 +16,9 @@ local config = {
         border = 'rounded',
         winblend = 0,
         keys = {
-            confirm = 'I',
-            next_item = 'P',
-            prev_item = 'O',
+            confirm = '<cr>',
+            next_item = '<tab>',
+            prev_item = '<s-tab>',
         }
     }
 }
@@ -117,13 +117,27 @@ M.create_menu = function(size, content, callback)
     M.keyset(keys.prev_item, function() change_selection('prev') end, nil, 'i')
 end
 
+---@param content table<string>
+---@return table<string>
+M.filter_content = function(content)
+    local row, col = unpack(api.nvim_win_get_cursor(0))
+    local line = unpack(api.nvim_buf_get_lines(0, row - 1, row, false))
+    local word = line:match('([%w_]+)', col - 1) or '' -- FIXME
+
+    return vim.tbl_filter(function(v)
+        print(v, word,vim.startswith(v, word))
+        return vim.startswith(v, word)
+    end, content)
+end
+
 M.display_menu = function()
     if not is_enabled then
         M.clear_menu()
         return
     end
 
-    M.create_menu({ width = 55, height = 6 }, { 'height', 'fun', 'x', 'y', 'local', 'test' }, function(opt, nth_opt)
+    local content = M.filter_content({ 'height', 'fun', 'x', 'y', 'local', 'test' })
+    M.create_menu({ width = 55, height = 6 }, content, function(opt, nth_opt)
         is_enabled = false
 
         local row, col = unpack(api.nvim_win_get_cursor(0))
@@ -131,7 +145,7 @@ M.display_menu = function()
         local updated_line = line:sub(1, col) .. opt .. line:sub(col + 1)
 
         api.nvim_buf_set_lines(0, row - 1, row, false, { updated_line })
-        api.nvim_win_set_cursor(0, {row, col + #opt})
+        api.nvim_win_set_cursor(0, { row, col + #opt })
 
         is_enabled = true
         M.redraw()
@@ -149,17 +163,17 @@ M.toggle = function()
     M.display_menu()
 end
 
-api.nvim_create_user_command('Complete', M.toggle, {})
-api.nvim_create_autocmd('InsertLeave', {
-    callback = function()
-        is_enabled = false
-        M.clear_menu()
-    end
-})
-api.nvim_create_autocmd({'VimResized', 'CursorMovedI'}, {
-    callback = function()
-        M.redraw()
-    end
-})
+-- api.nvim_create_user_command('Complete', M.toggle, {})
+-- api.nvim_create_autocmd('InsertLeave', {
+--     callback = function()
+--         is_enabled = false
+--         M.clear_menu()
+--     end
+-- })
+-- api.nvim_create_autocmd({ 'VimResized', 'CursorMovedI' }, {
+--     callback = function()
+--         M.redraw()
+--     end
+-- })
 
 return M
