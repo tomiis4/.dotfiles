@@ -17,6 +17,7 @@ local config = {
         winblend = 0,
         keys = {
             confirm = '<cr>',
+            close_menu = '<c-e>',
             next_item = '<tab>',
             prev_item = '<s-tab>',
         }
@@ -113,6 +114,7 @@ M.create_menu = function(size, content, callback)
     end
 
     M.keyset(keys.confirm, function() select_item() end, nil, 'i')
+    M.keyset(keys.close_menu, function() M.toggle() end, nil, 'i')
     M.keyset(keys.next_item, function() change_selection('next') end, nil, 'i')
     M.keyset(keys.prev_item, function() change_selection('prev') end, nil, 'i')
 end
@@ -120,14 +122,32 @@ end
 ---@param content table<string>
 ---@return table<string>
 M.filter_content = function(content)
+    ---@param col number
+    ---@param line string
+    ---@return string
+    local function get_word(col, line)
+        local idx = 0
+
+        -- FIXME: work only when you are on start of line
+        for v in line:gmatch('%S+') do
+            if col <= idx + #v then
+                return v
+            end
+
+            idx = idx + #v + 1
+        end
+
+        return ''
+    end
+
     local row, col = unpack(api.nvim_win_get_cursor(0))
     local line = unpack(api.nvim_buf_get_lines(0, row - 1, row, false))
-    local word = line:match('([%w_]+)', col - 1) or '' -- FIXME
+    local enter_value = get_word(col, line)
+    print(enter_value)
 
-    return vim.tbl_filter(function(v)
-        print(v, word,vim.startswith(v, word))
-        return vim.startswith(v, word)
-    end, content)
+    return vim.tbl_filter(function(select_value)
+            return select_value:find(enter_value) ~= nil
+        end, content)
 end
 
 M.display_menu = function()
@@ -136,20 +156,26 @@ M.display_menu = function()
         return
     end
 
-    local content = M.filter_content({ 'height', 'fun', 'x', 'y', 'local', 'test' })
-    M.create_menu({ width = 55, height = 6 }, content, function(opt, nth_opt)
-        is_enabled = false
+    local content = M.filter_content({ 'height', 'fun', 'lgtm', 'y', 'local', 'test' })
 
-        local row, col = unpack(api.nvim_win_get_cursor(0))
-        local line = unpack(api.nvim_buf_get_lines(0, row - 1, row, false))
-        local updated_line = line:sub(1, col) .. opt .. line:sub(col + 1)
+    if #content <= 0 then return end
 
-        api.nvim_buf_set_lines(0, row - 1, row, false, { updated_line })
-        api.nvim_win_set_cursor(0, { row, col + #opt })
+    M.create_menu(
+        { width = 55, height = #content },
+        content,
+        function(opt, _)
+            is_enabled = false
 
-        is_enabled = true
-        M.redraw()
-    end)
+            local row, col = unpack(api.nvim_win_get_cursor(0))
+            local line = unpack(api.nvim_buf_get_lines(0, row - 1, row, false))
+            local updated_line = line:sub(1, col) .. opt .. line:sub(col + 1)
+
+            api.nvim_buf_set_lines(0, row - 1, row, false, { updated_line })
+            api.nvim_win_set_cursor(0, { row, col + #opt })
+
+            is_enabled = true
+            M.redraw()
+        end)
 end
 
 M.redraw = function()
@@ -163,17 +189,17 @@ M.toggle = function()
     M.display_menu()
 end
 
--- api.nvim_create_user_command('Complete', M.toggle, {})
--- api.nvim_create_autocmd('InsertLeave', {
---     callback = function()
---         is_enabled = false
---         M.clear_menu()
---     end
--- })
--- api.nvim_create_autocmd({ 'VimResized', 'CursorMovedI' }, {
---     callback = function()
---         M.redraw()
---     end
--- })
+api.nvim_create_user_command('Complete', M.toggle, {})
+api.nvim_create_autocmd('InsertLeave', {
+    callback = function()
+        is_enabled = false
+        M.clear_menu()
+    end
+})
+api.nvim_create_autocmd({ 'VimResized', 'CursorMovedI' }, {
+    callback = function()
+        M.redraw()
+    end
+})
 
 return M
