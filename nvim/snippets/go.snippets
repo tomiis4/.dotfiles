@@ -1,9 +1,92 @@
-snippet main
+snippet pkgm
+	package main
+
 	import "fmt"
 
 	func main() {
 		fmt.Println("Hello, world")
 	}
+
+snippet func
+	func ${1:name}() {
+
+	}
+
+snippet if
+	if ${1:condition} {
+		
+	}
+
+snippet else
+	else {
+
+	}
+
+snippet elseif
+	else if ${1:condition} {
+
+	}
+
+snippet import
+	import "${1:package}"
+
+snippet var
+	var ${1:name} int = 1
+
+snippet const
+	const (
+		${1:name} = ${2:value}
+	)
+
+snippet map
+	map[${1:key}]${2:value}{}
+
+snippet struct
+	type ${1:name} struct {
+		x int
+	}
+
+snippet ifelse
+	if ${1:condition} {
+		
+	} else {
+
+	}
+
+snippet print
+	fmt.Println(${1:value})
+
+snippet switch
+	switch ${1:statement} {
+	case x:
+		//...
+	default:
+		//...
+	}
+
+snippet case
+	case ${1:value}:
+		
+
+snippet for
+	for i:=0; i<${1:number}; i++ {
+		//...
+	}
+
+snippet forrange
+	for k, v := range ${1:slice} {
+		//...
+	}
+
+snippet while
+	for {
+		if ${1:statement} {
+			break
+		}
+	}
+
+snippet return
+	return ${1:value}
 
 snippet append
 	append(${1:slice}, ${0:value})
@@ -12,4 +95,13 @@ snippet TODO
 	// TODO: ${1:todo}
 
 snippet FIXME
-	// TODO: ${1:fixme}
+	// FIXME: ${1:fixme}
+
+snippet random
+	func randInt(max int) int {
+		newTime := rand.NewSource(time.Now().UnixNano())
+		resetRandom := rand.New(newTime)
+		random_number := resetRandom.Intn(max)
+
+		return random_number
+	}
