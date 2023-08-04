@@ -18,7 +18,7 @@ vim.opt.termguicolors = true
 vim.cmd('language en_US')
 vim.cmd('syntax on')
 
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 4
 vim.opt.signcolumn = "yes"
 vim.opt.laststatus = 3
 
@@ -27,7 +27,7 @@ vim.opt.colorcolumn = "80"
 vim.opt.title = true
 vim.api.nvim_create_autocmd('BufEnter', {
     callback = function ()
-        local name = vim.api.nvim_buf_get_name(0):match('[^\\/]+$') or ''
+        local name = vim.api.nvim_buf_get_name(0):match('[^\\/]+$') or '[No Name]'
         vim.opt.titlestring = ' ' .. name
     end
 })

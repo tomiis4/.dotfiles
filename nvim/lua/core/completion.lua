@@ -128,7 +128,8 @@ M.filter_content = function(content)
     local function get_word(col, line)
         local idx = 0
 
-        -- FIXME: work only when you are on start of line
+        -- !FIXME!: fix when there are 2+ spaces
+        -- TODO: count .- as word
         for v in line:gmatch('%S+') do
             if col <= idx + #v then
                 return v
