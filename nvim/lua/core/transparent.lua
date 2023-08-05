@@ -1,5 +1,5 @@
 local api = vim.api
-vim.g.is_transparent = true
+vim.g.is_transparent = false
 
 ---@param hl string
 ---@param type 'foreground'|'background'
@@ -23,21 +23,20 @@ vim.api.nvim_create_autocmd('ColorScheme', {
             local hl = vim.api.nvim_set_hl
             local fg_border = get_hl('FloatBorder', 'foreground')
             local bg_none = { bg = 'none' }
+            local remove_bg_group = {'Normal', 'NormalNC', 'NormalFloat', 'FloatBorder', 'Terminal', 'Error', 'DiffAdd', 'DiffChange', 'DiffDelete', 'DiffText', 'Directoryy', 'EndOfBuffer', 'ErrorMsg'}
 
             -- remove background
-            hl(0, 'Normal', bg_none)
-            hl(0, 'NormalNC', bg_none)
-            hl(0, 'NormalFloat', bg_none)
-            hl(0, 'FloatBorder', bg_none)
-            hl(0, 'Error', bg_none)
+            for _, v in pairs(remove_bg_group) do
+                hl(0, v, bg_none)
+            end
 
             -- change colors
-            hl(0, 'ColorColumn', { bg = '#282c34' })
-            hl(0, 'CursorLine', { bg = '#282c34' })
+            -- hl(0, 'ColorColumn', { bg = '#282c34' })
+            -- hl(0, 'CursorLine', { bg = '#282c34' })
 
             -- change statusline
-            hl(0, 'StatusLine', { bg = fg_border, fg = '#282c34' })
-            hl(0, 'StatusLineNC', { bg = fg_border, fg = '#5c6370' })
+            -- hl(0, 'StatusLine', { bg = fg_border, fg = '#282c34' })
+            -- hl(0, 'StatusLineNC', { bg = fg_border, fg = '#5c6370' })
         end
     end
 })

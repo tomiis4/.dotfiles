@@ -20,9 +20,18 @@ local colors = {
         description = 'fully green',
         link = 'mathofprimes/nightvision-nvim',
     },
+    ['komau'] = {
+        name = 'candle-grey-transparent',
+        description = 'very low contrast colorscheme',
+        link = 'aditya-azad/candle-grey',
+    },
+    ['custom'] = {
+        name = 'tomiis',
+        link = 'wadackel/vim-dogrun'
+    }
 }
 
-local scheme = colors['dogrun']
+local scheme = colors['custom']
 
 return {
     scheme.link,
