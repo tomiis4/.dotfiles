@@ -14,7 +14,8 @@ cfg.font_size = 12
 
 -- colors
 local img_path = wezterm.home_dir .. '\\.config\\wallpapers\\'
-cfg.window_background_image = img_path .. 'nord-theme-city.png'
+-- cfg.window_background_image = img_path .. 'nord-theme-city.png'
+cfg.window_background_image = img_path .. 'gradient-gray.png'
 cfg.colors = dogrun
 
 local battery_icons = {

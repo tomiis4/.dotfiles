@@ -26,8 +26,8 @@ local colors = {
         link = 'aditya-azad/candle-grey',
     },
     ['custom'] = {
-        name = 'tomiis',
-        link = 'wadackel/vim-dogrun'
+        name = 'ethereal',
+        link = 'wadackel/vim-dogrun' -- only way to work
     }
 }
 

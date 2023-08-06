@@ -27,6 +27,9 @@ keyset('n', '<cr>', 'ciw')
 -- disable q: (command line history)
 keyset('n', 'q:', ':q', { silent = false })
 
+-- open terminal
+keyset('n', '<leader>t', ':term <cr>')
+
 -- center screen next/prev occurrence search
 keyset('n', 'n', 'nzzzv')
 keyset('n', 'N', 'Nzzzv')
