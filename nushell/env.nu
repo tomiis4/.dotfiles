@@ -24,6 +24,7 @@ alias cfg = cd ~/.config
 
 alias d_lua = cd C:\Programming\Lua
 alias d_ts = cd C:\Programming\TypeScript
+alias d_go = cd C:\Programming\GoLang
 alias d_lazy = cd ~\AppData\Local\nvim-data\lazy
 alias d_p = cd C:\Programming
 

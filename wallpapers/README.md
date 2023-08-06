@@ -3,17 +3,20 @@
 ### City
 <img src="./city.png">
 
-### Cosmonaut
-<img src="./cosmonaut.jpg">
-
 ### Comet
 <img src="./comet.jpg">
+
+### Cosmonaut
+<img src="./cosmonaut.jpg">
 
 ### Cpu
 <img src="./cpu.png">
 
 ### Forest
 <img src="./forest.jpg">
+
+### Gradient Gray
+<img src="./gradient-gray.png">
 
 ### Planet
 <img src="./planet.png">
