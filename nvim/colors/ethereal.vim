@@ -37,7 +37,6 @@ hi PreCondit       guifg=#B0B0B0 guibg=NONE
 hi Debug           guifg=#B0B0B0 guibg=NONE
 hi SpecialChar     guifg=#B0B0B0 guibg=NONE
 hi Conditional     guifg=#B0B0B0 guibg=NONE
-hi Todo            guifg=#B0B0B0 guibg=NONE
 hi Special         guifg=#B0B0B0 guibg=NONE
 hi Label           guifg=#B0B0B0 guibg=NONE
 hi Delimiter       guifg=#B0B0B0 guibg=NONE
@@ -85,6 +84,10 @@ hi ColorColumn    guibg=#181A1E
 hi Search         guibg=#808080 guifg=#CCCCCC
 hi Visual         guibg=#181A1E guifg=#CCCCCC
 hi VertSplit                    guifg=#CCCCCC
+
+hi Todo                       guifg=#FF6B6B guibg=NONE gui=bold
+hi Fixme                      guifg=#FF6B6B guibg=NONE gui=bold
+hi Note                       guifg=#FF6B6B guibg=NONE gui=bold
 
 hi DiagnosticError            guifg=#FF6B6B
 hi DiagnosticVirtualTextError guifg=#FF6B6B gui=bold

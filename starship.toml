@@ -21,6 +21,23 @@ format = '[git:\(](#5FAAE8)[$branch](fg:#D0666F)[\)](#5FAAE8) '
 
 
 ###############################################
+# [directory] (main): <command>               #
+###############################################
+
+# format = """
+# $directory\
+# ($git_branch)\
+# """
+#
+# [directory]
+# format = '[\[$path\]](fg:#56B6C2) '
+# truncation_length = 1
+#
+# [git_branch]
+# format = '[\($branch\): ](fg:#D0666F)'
+
+
+###############################################
 #    directory    main     ﳑ v1.26  #
 #   <command>                                #
 ###############################################
