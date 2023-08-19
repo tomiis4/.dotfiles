@@ -110,11 +110,11 @@ return {
                     border = 'none',
                     col_offset = -3,
                     side_padding = 0,
-                    winhighlight = 'Normal:Visual,FloatBorder:Visual,CursorLine:Search,Search:None'
+                    winhighlight = 'Normal:CursorLine,FloatBorder:Visual,CursorLine:Visual,Search:None'
                 },
                 documentation = {
                     border = 'none',
-                    winhighlight = 'FloatBorder:NormalFloat,Normal:Visual'
+                    winhighlight = 'FloatBorder:NormalFloat,Normal:CursorLine'
                 }
             },
             sources = cmp.config.sources({
