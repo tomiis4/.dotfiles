@@ -1,4 +1,4 @@
-let-env config = {
+$env.config = {
     ls: {
         use_ls_colors: true
         clickable_links: true

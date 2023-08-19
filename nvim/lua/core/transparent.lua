@@ -1,5 +1,5 @@
 local api = vim.api
-vim.g.is_transparent = true
+vim.g.is_transparent = false
 
 api.nvim_create_user_command(
     'Transparent',

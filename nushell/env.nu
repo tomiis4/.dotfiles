@@ -1,5 +1,5 @@
-let-env LANG = "en_US.utf-8"
-let-env EDITOR = "nvim"
+$env.LANG = "en_US.utf-8"
+$env.EDITOR = "nvim"
 
 alias ga = git add
 alias gaa = git add .
@@ -22,12 +22,12 @@ alias v = vim
 alias cfg = cd ~/.config
 
 
-alias d_lua = cd C:\Programming\Lua
-alias d_ts = cd C:\Programming\TypeScript
-alias d_go = cd C:\Programming\GoLang
-alias d_ggc = cd C:\Programming\GoLang\compilers\CompiGo
+alias d_lua = cd ~\Workspace\Lua
+alias d_ts = cd ~\Workspace\TypeScript
+alias d_go = cd ~\Workspace\GoLang
+alias d_ggc = cd ~\Workspace\GoLang\compilers\CompiGo
 alias d_lazy = cd ~\AppData\Local\nvim-data\lazy
-alias d_p = cd C:\Programming
+alias d_p = cd ~\Workspace
 
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
