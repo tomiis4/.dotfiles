@@ -13,10 +13,15 @@ alias gsa = git stash apply
 alias gch = git checkout
 
 
+alias si = scoop install
+alias su = scoop install
+
+
 alias pwd = echo $env.PWD
 alias cls = clear
 alias n = nvim
 alias v = vim
+alias nf = neofetch
 
 
 alias cfg = cd ~/.config
