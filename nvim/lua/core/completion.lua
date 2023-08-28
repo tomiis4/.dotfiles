@@ -14,7 +14,7 @@ local ns = api.nvim_create_namespace('Completion')
 local config = {
     window = {
         border = 'rounded',
-        winblend = 0,
+        winblend = 15,
         keys = {
             confirm = '<cr>',
             close_menu = '<c-e>',
@@ -83,12 +83,18 @@ M.create_menu = function(size, content, callback)
     api.nvim_set_option_value('buflisted', false, { buf = buf })
     api.nvim_set_option_value('cursorline', true, { buf = buf })
 
-    -- TODO: add to config
     -- api.nvim_set_option_value('winhighlight', 'Normal:Normal,FloatBorder:Normal', { win = win })
+    -- TODO: add to config ^
 
     table.insert(active_windows, { win, buf })
 
     local function select_item()
+        -- handle deleted window
+        if not api.nvim_win_is_valid(win) then
+            callback('', -1)
+            return
+        end
+
         local row = api.nvim_win_get_cursor(win)[1]
         local selected_item = content[row]
 
@@ -99,7 +105,7 @@ M.create_menu = function(size, content, callback)
     local function change_selection(direction)
         if direction == 'prev' then
             cursor = cursor - 1
-        else
+        elseif direction == 'next' then
             cursor = cursor + 1
         end
 
@@ -113,6 +119,8 @@ M.create_menu = function(size, content, callback)
         api.nvim_win_set_cursor(win, { cursor, 0 })
     end
 
+    -- add keymaps 
+    -- FIXME: does not work if is menu closed default mapping
     M.keyset(keys.confirm, function() select_item() end, nil, 'i')
     M.keyset(keys.close_menu, function() M.toggle() end, nil, 'i')
     M.keyset(keys.next_item, function() change_selection('next') end, nil, 'i')
@@ -125,7 +133,7 @@ M.filter_content = function(content)
     ---@param col number
     ---@param line string
     ---@return string
-    local function get_word(col, line)
+    local function get_current_word(col, line)
         local idx = 0
 
         -- !FIXME!: fix when there are 2+ spaces
@@ -143,8 +151,8 @@ M.filter_content = function(content)
 
     local row, col = unpack(api.nvim_win_get_cursor(0))
     local line = unpack(api.nvim_buf_get_lines(0, row - 1, row, false))
-    local enter_value = get_word(col, line)
-    print(enter_value)
+    local enter_value = get_current_word(col, line)
+    -- print(enter_value)
 
     return vim.tbl_filter(function(select_value)
             return select_value:find(enter_value) ~= nil
@@ -165,6 +173,7 @@ M.display_menu = function()
         { width = 55, height = #content },
         content,
         function(opt, _)
+            if not is_enabled then return end
             is_enabled = false
 
             local row, col = unpack(api.nvim_win_get_cursor(0))

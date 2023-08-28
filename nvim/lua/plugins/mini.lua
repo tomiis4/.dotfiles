@@ -7,10 +7,10 @@ return {
             require('mini.pairs').setup()
             require('mini.surround').setup({
                 mappings = {
-                    add = 'sa', -- Add surrounding in Normal and Visual modes
-                    delete = 'sd', -- Delete surrounding
-                    find = 'sf', -- Find surrounding (to the right)
-                    replace = 'sc', -- Replace surrounding
+                    add = 'sa',       -- Add surrounding in Normal and Visual modes
+                    delete = 'sd',    -- Delete surrounding
+                    find = 'sf',      -- Find surrounding (to the right)
+                    replace = 'sc',   -- Replace surrounding
                     find_left = 'sF', -- Find surrounding (to the left)
                     highlight = 'sh', -- Highlight surrounding
                 },
@@ -21,7 +21,7 @@ return {
         'echasnovski/mini.comment',
         keys = {
             { '<leader><leader>', ':lua require("mini.comment").setup()<cr>' },
-            { 'gc', ':lua require("mini.comment").setup()<cr>', mode = 'v'},
+            { 'gc',               ':lua require("mini.comment").setup()<cr>', mode = 'v' },
         },
         config = function()
             require('mini.comment').setup(
