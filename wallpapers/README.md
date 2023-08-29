@@ -154,6 +154,9 @@
 ### purple-0
 ![img](./purple-0.png)
 
+### purple-1
+![img](./purple-1.png)
+
 
 ## Purple & Blue
 
