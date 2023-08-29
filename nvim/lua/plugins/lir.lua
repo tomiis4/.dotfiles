@@ -20,7 +20,7 @@ return {
                 ['<C-h>'] = actions.split, -- open split
                 ['<C-v>'] = actions.vsplit, -- open vsplit
 
-                [']']     = actions.up, -- up dir
+                ['p']     = actions.up, -- up dir
                 ['q']     = actions.quit,
 
                 ['/']     = actions.mkdir,
