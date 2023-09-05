@@ -105,6 +105,7 @@ M.setup_buf_win = function(args)
     -- configure window
     api.nvim_set_option_value('modifiable', false, { buf = buf_win[1] })
     api.nvim_set_option_value('buflisted', false, { buf = buf_win[1] })
+    api.nvim_set_current_win(win)
 
     -- add highlights
     api.nvim_set_option_value('winhighlight', 'Normal:Normal,FloatBorder:Normal', { win = buf_win[2] })
