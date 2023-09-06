@@ -130,18 +130,57 @@ M.setup_buf_win = function(args)
 end
 
 
----@param buf number
+---@param buf number|nil
 ---@param key string
 ---@param action string|function
 ---@param mode string? default 'n'
 ---@param opts table?
-function M.keyset(buf, key, action, mode, opts)
+M.keyset = function(buf, key, action, mode, opts)
     opts = opts or { nowait = true, silent = true }
     opts['buffer'] = buf
 
     mode = mode or 'n'
 
     vim.keymap.set(mode, key, action, opts)
+end
+
+
+---@return table<number>
+M.get_buffers = function()
+    local buffers = api.nvim_list_bufs()
+    buffers = vim.tbl_filter(function(buf)
+        local is_loaded = api.nvim_buf_is_loaded(buf)
+        local is_listed = vim.fn.buflisted(buf) == 1
+
+        if not (is_loaded and is_listed) then
+            return false
+        end
+
+        return true
+    end, buffers)
+
+    return buffers
+end
+
+
+---@param buf number
+---@return string
+M.get_buffer_name = function(buf)
+    return api.nvim_buf_get_name(buf):match("[^\\/]+$") or ""
+end
+
+
+---@param tbl table
+---@param val string
+---@return number
+M.index_of = function(tbl, val)
+    for k, v in pairs(tbl) do
+        if v == val then
+            return k
+        end
+    end
+
+    return -1
 end
 
 

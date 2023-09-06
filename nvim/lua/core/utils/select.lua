@@ -41,7 +41,6 @@ M.select = function(args, callback)
         callback = function()
             if api.nvim_get_current_win() == win then
                 api.nvim_set_current_win(win)
-                print("x")
             end
         end
     })
