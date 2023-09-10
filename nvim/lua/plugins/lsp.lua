@@ -170,6 +170,7 @@ return {
 
         require('lspconfig.ui.windows').default_options.border = 'rounded'
         require('lspconfig')['gopls'].setup { capabilities = capabilities }
+        require('lspconfig')['clangd'].setup { capabilities = capabilities }
         require('lspconfig')['tsserver'].setup { capabilities = capabilities }
         require 'lspconfig'.lua_ls.setup {
             settings = {
