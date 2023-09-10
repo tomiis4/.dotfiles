@@ -27,12 +27,18 @@ alias nf = neofetch
 alias cfg = cd ~/.config
 
 
-alias d_lua = cd ~\Workspace\Lua
-alias d_ts = cd ~\Workspace\TypeScript
+alias d_p = cd ~\Workspace
+alias d_c = cd ~\Workspace\CLang
 alias d_go = cd ~\Workspace\GoLang
+alias d_java = cd ~\Workspace\Java
+alias d_lua = cd ~\Workspace\Lua
+alias d_rust = cd ~\Workspace\Rust
+alias d_ts = cd ~\Workspace\TypeScript
+alias d_v = cd ~\Workspace\VLang
+alias d_zig = cd ~\Workspace\Zig
+
 alias d_ggc = cd ~\Workspace\GoLang\compilers\CompiGo
 alias d_lazy = cd ~\AppData\Local\nvim-data\lazy
-alias d_p = cd ~\Workspace
 
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
