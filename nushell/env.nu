@@ -26,6 +26,7 @@ alias nf = neofetch
 
 alias cfg = cd ~/.config
 
+source ~/.config/nushell/scripts/project-c.nu
 
 alias d_p = cd ~\Workspace
 alias d_c = cd ~\Workspace\CLang
