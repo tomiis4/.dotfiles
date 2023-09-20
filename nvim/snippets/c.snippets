@@ -1,0 +1,44 @@
+
+
+snippet main
+	#include<stdio.h>
+
+	int main() {
+		printf("Hello, world!");
+		return 0;
+	}
+
+snippet func
+	${1:type}name() {
+		${0:$VISUAL}
+	}
+		
+snippet switch
+	switch (${1:statement}) {
+    case 0:
+        //...
+        break;
+    default:
+        //...
+	}
+
+snippet if
+	if (${1:statement}) {
+		
+	}
+
+snippet ifelse
+	if (${1:statement}) {
+		
+	} else {
+		
+	}
+
+snippet for
+	for (int i=0; i < 10; i++) {
+		//...
+	}
+
+snippet print
+	printf(${1:code});
+
