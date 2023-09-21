@@ -23,7 +23,7 @@ end
 M.switch_by_numbers = function()
     local ids = U.get_buffers()
 
-    -- swtich by numbers
+    -- switch by numbers
     for k, v in pairs(ids) do
         U.keyset(nil, '<leader>' .. k, function()
             M.clear()
@@ -31,6 +31,7 @@ M.switch_by_numbers = function()
         end)
     end
 
+    -- FIXME: bufdelete
     api.nvim_create_autocmd('BufAdd', {
         callback = function()
             M.switch_by_numbers()
