@@ -12,6 +12,19 @@ end
 
 vim.g.mapleader = ' '
 
+-- disable arrows
+vim.cmd([[
+    noremap <Up> <Nop>
+    noremap <Down> <Nop>
+    noremap <Left> <Nop>
+    noremap <Right> <Nop>
+
+    inoremap <Up> <Nop>
+    inoremap <Down> <Nop>
+    inoremap <Left> <Nop>
+    inoremap <Right> <Nop>
+]])
+
 -- move window by HLKJ
 keyset('n', '<leader>h', ':wincmd h <CR>')
 keyset('n', '<leader>l', ':wincmd l <CR>')
