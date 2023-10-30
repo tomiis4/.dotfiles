@@ -34,6 +34,9 @@ return {
 
             ---@type 'top'|'bottom'|'center'
             vertical = 'top',
+
+            ---@type number in ms (recommend 2000)
+            timeout = 2000
         })
     end
 }
