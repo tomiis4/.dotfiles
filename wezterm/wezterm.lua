@@ -1,6 +1,6 @@
 local wezterm = require('wezterm')
 local act = wezterm.action
-local rosepine = require('colors.rose-pine')
+local dogrun = require('colors.dogrun')
 local cfg = {}
 
 -- clean error messages
@@ -14,8 +14,8 @@ cfg.font_size = 12
 
 -- colors
 -- local img_path = wezterm.home_dir .. '\\.config\\wallpapers\\'
--- cfg.window_background_image = img_path .. 'green-gray-0.png'
-cfg.colors = rosepine
+-- cfg.window_background_image = img_path ..'pink-purple-0.png'
+cfg.colors = dogrun
 
 local battery_icons = {
     '󰂎', '󰁺', '󰁻',
@@ -48,6 +48,8 @@ cfg.hide_tab_bar_if_only_one_tab = true
 cfg.tab_bar_at_bottom = true
 cfg.use_fancy_tab_bar = false
 cfg.check_for_updates = false
+cfg.initial_rows = 20
+cfg.initial_cols = 100
 cfg.window_padding = {
     left = 10,
     right = 10,
