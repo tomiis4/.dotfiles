@@ -26,6 +26,9 @@ return {
             ---@type boolean
             show_all = false,
 
+            ---@type boolean
+            show_single_buffer = false,
+
             ---@type 'row'|'column'
             display = 'column',
 
