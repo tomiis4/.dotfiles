@@ -6,6 +6,10 @@ return {
             inactive_fg = '#aaaaaa',
             stab_right = '',
             stab_left = '',
+            numbers = function(_, n)
+                return '[' .. n .. '] '
+            end
+
         }
         require 'staline'.setup {
             sections = {
