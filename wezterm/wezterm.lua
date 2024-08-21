@@ -1,6 +1,6 @@
 local wezterm = require('wezterm')
 local act = wezterm.action
-local dogrun = require('colors.dogrun')
+local rose_pine = require('colors.rose-pine')
 local cfg = {}
 
 -- clean error messages
@@ -15,7 +15,7 @@ cfg.font_size = 12
 -- colors
 -- local img_path = wezterm.home_dir .. '\\.config\\wallpapers\\'
 -- cfg.window_background_image = img_path ..'pink-purple-0.png'
-cfg.colors = dogrun
+cfg.colors = rose_pine
 
 local battery_icons = {
     '󰂎', '󰁺', '󰁻',
@@ -84,12 +84,12 @@ cfg.keys = {
         action = act.CloseCurrentPane { confirm = false },
     },
     {
-        key = 'c',
+        key = 'n',
         mods = 'CTRL',
         action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection',
     },
     {
-        key = 'v',
+        key = 'm',
         mods = 'CTRL',
         action = act.PasteFrom 'PrimarySelection'
     },
