@@ -1,6 +1,6 @@
 # My Windows Config
-Font: <a href='https://www.nerdfonts.com/font-downloads'> Hurmit NF </a>\
-Theme: <a href='https://github.com/wadackel/vim-dogrun'> Dogrun </a>\
+Font: <a href='https://www.nerdfonts.com/font-downloads'> CaskaydiaMono NFM </a>\
+Theme: <a href='https://github.com/wadackel/vim-dogrun'> Gruvbox </a>\
 Editor: NeoVim\
 Terminal: WezTerm\
 Shell: nushell\

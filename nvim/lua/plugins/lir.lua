@@ -12,7 +12,7 @@ return {
             ignore = { "node_modules" },
             devicons = {
                 enable = true,
-                highlight_dirname = false
+                highlight_dirname = true
             },
 
             mappings = {

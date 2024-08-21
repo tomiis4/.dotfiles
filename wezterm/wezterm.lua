@@ -1,6 +1,6 @@
 local wezterm = require('wezterm')
 local act = wezterm.action
-local rose_pine = require('colors.rose-pine')
+local gruvbox = require('colors.gruvbox')
 local cfg = {}
 
 -- clean error messages
@@ -9,13 +9,11 @@ if wezterm.config_builder then
 end
 
 -- font
-cfg.font = wezterm.font('Hurmit Nerd Font Mono')
+cfg.font = wezterm.font('CaskaydiaMono NFM')
 cfg.font_size = 12
 
 -- colors
--- local img_path = wezterm.home_dir .. '\\.config\\wallpapers\\'
--- cfg.window_background_image = img_path ..'pink-purple-0.png'
-cfg.colors = rose_pine
+cfg.colors = gruvbox
 
 local battery_icons = {
     '󰂎', '󰁺', '󰁻',
@@ -24,7 +22,6 @@ local battery_icons = {
     '󰁹', '󰁹'
 }
 wezterm.on("update-right-status", function(window, _)
-    -- Day Month DD Hour:Minute
     local date = wezterm.strftime("%a %b %-d %H:%M ");
 
     local battery_status = ''

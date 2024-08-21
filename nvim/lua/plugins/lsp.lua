@@ -87,7 +87,6 @@ return {
         'dcampos/nvim-snippy',
     },
     config = function()
-        local is_transparent = vim.g.is_transparent or false
         local cmp = require('cmp')
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
@@ -110,7 +109,7 @@ return {
                     border = 'none',
                     col_offset = -3,
                     side_padding = 0,
-                    winhighlight = 'Normal:CursorLine,FloatBorder:Visual,CursorLine:Visual,Search:None'
+                    winhighlight = 'Normal:Visual,FloatBorder:Visual,CursorLine:CursorLine,Search:None'
                 },
                 documentation = {
                     border = 'none',
@@ -137,11 +136,11 @@ return {
                     local kind = vim_item.kind
 
                     vim_item.menu = ({
-                            buffer = "[Buffer]",
-                            nvim_lsp = "[LSP]",
-                            snippy = "[Snippy]",
-                            nvim_lua = "[Lua]",
-                        })[source]
+                        buffer = "[Buffer]",
+                        nvim_lsp = "[LSP]",
+                        snippy = "[Snippy]",
+                        nvim_lua = "[Lua]",
+                    })[source]
 
                     vim_item.kind = ' ' .. kind_tbl[kind] .. ' '
                     return vim_item
