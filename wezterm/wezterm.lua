@@ -33,8 +33,10 @@ wezterm.on("update-right-status", function(window, _)
         battery_status = icon .. string.format(' %.0f%%', battery)
     end
 
+    local workspace = window:active_workspace()
+
     window:set_right_status(wezterm.format({ {
-        Text = battery_status .. '  ' .. date
+        Text = battery_status .. '  ' .. date .. '  [' .. workspace .. ']'
     } }))
 end)
 
@@ -95,6 +97,46 @@ cfg.keys = {
         key = 'f',
         mods = 'LEADER',
         action = wezterm.action.ShowTabNavigator
+    },
+    {
+        key = 'r',
+        mods = 'LEADER',
+        action = act.PromptInputLine {
+            description = 'Enter new name for tab',
+            action = wezterm.action_callback(function(window, pane, line)
+                if line then
+                    window:active_tab():set_title(line)
+                end
+            end),
+        },
+    },
+    {
+        key = 'p',
+        mods = 'LEADER',
+        action = act.ShowLauncherArgs { flags = 'WORKSPACES' },
+    },
+    {
+        key = 'w',
+        mods = 'LEADER',
+        action = act.PromptInputLine {
+            description = 'Enter new name for workspace',
+            action = wezterm.action_callback(function(_, _, line)
+                if line then
+                    wezterm.mux.rename_workspace(wezterm.mux.get_active_workspace(), line)
+                end
+            end),
+        },
+    },
+    {
+      key = 'j',
+      mods = 'LEADER',
+      action = act.SwitchWorkspaceRelative(-1),
+    },
+
+    {
+      key = 'k',
+      mods = 'LEADER',
+      action = act.SwitchWorkspaceRelative(1),
     },
 }
 
