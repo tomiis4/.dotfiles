@@ -5,6 +5,6 @@ return {
             telescope = false,
             cmp = false,
         })
-        vim.cmd('colorscheme base16-gruvbox-dark-medium')
+        vim.cmd('colorscheme base16-gruvbox-dark-hard')
     end
 }

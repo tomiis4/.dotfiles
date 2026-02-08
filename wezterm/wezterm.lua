@@ -1,6 +1,6 @@
 local wezterm = require('wezterm')
 local act = wezterm.action
-local gruvbox = require('colors.gruvbox')
+local gruvbox = require('colors.gruvbox-dark')
 local cfg = {}
 
 -- clean error messages
@@ -9,8 +9,9 @@ if wezterm.config_builder then
 end
 
 -- font
-cfg.font = wezterm.font('CaskaydiaMono NFM')
+cfg.font = wezterm.font('GeistMono NFM')
 cfg.font_size = 12
+
 
 -- colors
 cfg.colors = gruvbox
