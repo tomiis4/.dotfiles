@@ -33,5 +33,17 @@ return {
                     },
                 })
         end
+    },
+    {
+        'echasnovski/mini.pick',
+        keys = {
+            { '<leader>ff', ':Pick files<cr>' },
+            { '<leader>fg', ':Pick grep_live<cr>' },
+        },
+        config = function()
+            require('mini.pick').setup(
+                {
+                })
+        end
     }
 }
